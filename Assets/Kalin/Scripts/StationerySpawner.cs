@@ -22,7 +22,7 @@ namespace KalinKonta.Stationery
 
         private void OnEnable()
         {
-            GameManager.OnStage1Start.AddListener(GenerateStationery);
+            GameManager.OnStage1Start?.AddListener(GenerateStationery);
         }
 
         private void OnDisable()
