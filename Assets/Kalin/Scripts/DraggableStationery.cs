@@ -51,11 +51,13 @@ namespace KalinKonta.Stationery
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (isDragging) return;
             if (highlighter != null) highlighter.ToggleHighlight(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (isDragging) return;
             if (highlighter != null) highlighter.ToggleHighlight(false);
         }
 
@@ -78,8 +80,6 @@ namespace KalinKonta.Stationery
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (highlighter != null) highlighter.ToggleHighlight(true);
-
             isDragging = false;
             if (state == DraggableState.WaitForSelected) 
                 StationerySpawner.Instance.GenerateStationery(); // new round
