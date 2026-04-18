@@ -71,7 +71,7 @@ namespace KalinKonta.Stationery
                 int randomIndex = Random.Range(0, pool.Count);
                 GameObject prefab = pool[randomIndex];
 
-                GameObject go = Instantiate(prefab, spawnPos, Quaternion.identity);
+                GameObject go = Instantiate(prefab, spawnPos, prefab.transform.rotation);
                 go.transform.SetParent(this.transform);
                 if (!go.GetComponent<DraggableStationery>()) go.AddComponent<DraggableStationery>();
 
