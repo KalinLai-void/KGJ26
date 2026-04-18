@@ -44,7 +44,6 @@ namespace KalinKonta.Stationery
             isDragging = true;
             if (state == DraggableState.WaitForSelected) 
                 StationerySpawner.Instance.SelectedObj(gameObject);
-            state = DraggableState.Free;
             Debug.Log($"Click on {gameObject.name}");
         }
 
@@ -60,6 +59,7 @@ namespace KalinKonta.Stationery
             isDragging = false;
             if (state == DraggableState.WaitForSelected) 
                 StationerySpawner.Instance.GenerateStationery(); // new round
+            state = DraggableState.Free;
         }
     }
 }
