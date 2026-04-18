@@ -25,7 +25,7 @@ namespace ZhengHua.Common
                     if (_instance == null)
                     {
                         // 在場景中搜尋是否已經存在該物件
-                        _instance = (T)FindObjectOfType(typeof(T));
+                        _instance = (T)FindAnyObjectByType(typeof(T));
 
                         // 如果場景中沒有，則建立一個新的
                         if (_instance == null)
