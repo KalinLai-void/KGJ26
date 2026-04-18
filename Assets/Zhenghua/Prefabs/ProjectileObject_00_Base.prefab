@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2585058815711441097}
   - component: {fileID: 1436152194010617642}
-  - component: {fileID: 4543491142893811219}
-  - component: {fileID: 3334320552116572094}
-  - component: {fileID: 2172637614391565983}
   - component: {fileID: 2399606781251664255}
+  - component: {fileID: 1350420814636077985}
+  - component: {fileID: 5843629203207695340}
+  - component: {fileID: 6290956135674320469}
   m_Layer: 0
   m_Name: ProjectileObject_00_Base
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6953661862311394701}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.193, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -61,17 +61,31 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
---- !u!33 &4543491142893811219
+--- !u!114 &2399606781251664255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953661862311394701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476a3d0d721648b8a1d6109b515c0a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ProjectileObject_Poop
+  _maxSpeed: 50
+  _rigidbody: {fileID: 1436152194010617642}
+--- !u!33 &1350420814636077985
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6953661862311394701}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3334320552116572094
+  m_Mesh: {fileID: -4312936179488617340, guid: 14582b26aad973b4ca9560d29a77caa1, type: 3}
+--- !u!23 &5843629203207695340
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 6c127bf0e2b6ff849bd4c70b9771248e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,8 +134,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2172637614391565983
-CapsuleCollider:
+--- !u!64 &6290956135674320469
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -138,22 +152,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2399606781251664255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6953661862311394701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 476a3d0d721648b8a1d6109b515c0a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ProjectileObject_Poop
-  _maxSpeed: 10
-  _rigidbody: {fileID: 1436152194010617642}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4312936179488617340, guid: 14582b26aad973b4ca9560d29a77caa1, type: 3}

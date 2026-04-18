@@ -19,5 +19,14 @@ namespace ZhengHua
         {
             if(_rigidbody == null) _rigidbody = GetComponent<Rigidbody>();
         }
+
+        protected void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("DeadZone"))
+            {
+                _rigidbody.linearVelocity = Vector3.zero;
+                this.gameObject.SetActive(false);
+            }
+        }
     }
 }
