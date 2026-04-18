@@ -27,8 +27,8 @@ namespace KalinKonta.Stationery
 
         private void OnDisable()
         {
-            GameManager.OnStage1Start.RemoveListener(GenerateStationery);
             ClearOldObjs();
+            GameManager.OnStage1Start.RemoveListener(GenerateStationery);
         }
 
         private void Awake()

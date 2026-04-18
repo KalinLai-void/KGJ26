@@ -19,11 +19,7 @@ namespace KalinKonta
         {
             if (GameManager.Instance.currentStage != GameManager.State.OnStage1Start) return;
 
-            GameManager.Instance.stage1Time -= Time.deltaTime;
             UpdateTimeText();
-            if (GameManager.Instance.stage1Time > 0) return;
-
-            GameManager.Instance.SkipStage1();
         }
 
         private void UpdateTimeText()

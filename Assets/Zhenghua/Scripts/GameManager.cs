@@ -32,6 +32,16 @@ namespace ZhengHua
 
         public float stage1Time = 180f;
 
+        private void Update()
+        {
+            if (stage1Time <= 0)
+            {
+                if (currentStage == State.OnStage1Start) SkipStage1();
+                return;
+            }
+            stage1Time -= Time.deltaTime;
+        }
+
         private void EnterStage1()
         {
             currentStage = State.OnStage1Start;
