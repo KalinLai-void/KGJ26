@@ -588,6 +588,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &330195788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6217455397293726326, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
+  m_PrefabInstance: {fileID: 82011589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec36fa97ca020f841ac371904caf30ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StationerySpawner
 --- !u!1 &430189345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1260,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 501893109}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 330195788}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipStage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
     - target: {fileID: 2699520186264329010, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
