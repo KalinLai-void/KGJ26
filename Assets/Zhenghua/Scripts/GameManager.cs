@@ -39,6 +39,7 @@ namespace ZhengHua
             onStage1FinishEvent?.Invoke();
             Invoke(nameof(EnterStage2), 1f);
         }
+        
 
         public void SkipStage1()
         {

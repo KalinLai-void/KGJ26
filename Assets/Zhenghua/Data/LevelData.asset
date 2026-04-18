@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2965f4b8174141e89bb91e992d49bec7, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ScriptableObjects.LevelData
+  levelDataItems:
+  - startTime: 1
+    shootCount: 1
+    everyDelay: 0
+  - startTime: 3
+    shootCount: 3
+    everyDelay: 0.1
+  - startTime: 5
+    shootCount: 3
+    everyDelay: 0
+  - startTime: 8
+    shootCount: 5
+    everyDelay: 0.1
+  - startTime: 10
+    shootCount: 6
+    everyDelay: 0.2
+  - startTime: 15
+    shootCount: 10
+    everyDelay: 0.05
+  - startTime: 20
+    shootCount: 20
+    everyDelay: 0
