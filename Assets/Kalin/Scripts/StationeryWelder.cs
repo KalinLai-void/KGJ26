@@ -51,6 +51,8 @@ namespace KalinKonta.Stationery
                     groupRoot.layer = itemA.gameObject.layer;
                     groupRoot.transform.SetParent(itemA.transform.parent);
 
+                    groupRoot.AddComponent<WeldedGroupHealthProxy>();
+
                     Rigidbody rootRb = groupRoot.AddComponent<Rigidbody>();
                     rootRb.linearDamping = 2f;
                     rootRb.angularDamping = 2f;
