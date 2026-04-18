@@ -491,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 6217455397293726326, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
       propertyPath: 'stationeryPrefabs.Array.data[18]'
       value: 
-      objectReference: {fileID: 2480828172757798673, guid: d15c9faa316dc394d82d05f79275bed6, type: 3}
+      objectReference: {fileID: 4289460295072566348, guid: d15c9faa316dc394d82d05f79275bed6, type: 3}
     - target: {fileID: 6217455397293726326, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
       propertyPath: 'stationeryPrefabs.Array.data[19]'
       value: 
