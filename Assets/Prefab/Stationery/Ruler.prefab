@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7664160145710714852}
   - component: {fileID: 6769836709694931009}
   - component: {fileID: 8797709129932403851}
-  - component: {fileID: 6862807618878868727}
   - component: {fileID: 8375870240980035678}
+  - component: {fileID: 8242187796233156573}
   m_Layer: 7
   m_Name: Ruler
   m_TagString: Untagged
@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6996132733008958814}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6324339, y: 0.3162712, z: -0.3162712, w: 0.6324339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.408, y: 0.573, z: -0.308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -36.862, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6769836709694931009
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -92,27 +92,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6862807618878868727
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6996132733008958814}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.053486124, y: 0.00650639, z: 0.2147793}
-  m_Center: {x: -0.0000000027939677, y: -2.328307e-10, z: 0}
 --- !u!54 &8375870240980035678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,3 +119,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 16
   m_CollisionDetection: 0
+--- !u!65 &8242187796233156573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996132733008958814}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.21477926, y: 0.053486124, z: 0.006506416}
+  m_Center: {x: 0, y: -0.0000000027939677, z: 1.1641532e-10}
