@@ -84,6 +84,7 @@ namespace KalinKonta.Stationery
             if (other.TryGetComponent(out Stationery stationery))
             {
                 spawnedItems.Remove(stationery.gameObject);
+                stationery.transform.SetParent(null); // inpendent gameobject (remove from spawner)
                 GenerateStationery(); // new round
             }
         }

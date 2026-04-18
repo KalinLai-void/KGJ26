@@ -36,6 +36,7 @@ namespace KalinKonta.Stationery
                     Rigidbody rootRb = groupRoot.AddComponent<Rigidbody>();
                     rootRb.linearDamping = 2f;
                     rootRb.angularDamping = 2f;
+                    rootRb.constraints = itemA.GetComponent<Rigidbody>().constraints;
 
                     neighbors.Add(itemA.gameObject);
 
