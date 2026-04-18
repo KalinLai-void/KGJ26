@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6953661862311394701}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.193, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 24
   m_CollisionDetection: 0
 --- !u!114 &2399606781251664255
 MonoBehaviour:
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476a3d0d721648b8a1d6109b515c0a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ProjectileObject_Poop
-  _maxSpeed: 50
+  _maxSpeed: 6
   _rigidbody: {fileID: 1436152194010617642}
 --- !u!33 &1350420814636077985
 MeshFilter:

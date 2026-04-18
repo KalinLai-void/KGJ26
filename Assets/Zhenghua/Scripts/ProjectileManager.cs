@@ -10,18 +10,16 @@ namespace ZhengHua
     public class ProjectileManager : Singleton<ProjectileManager>
     {
         [SerializeField] private Transform _vipTransform;
-        public void ShootPoop(Vector3 startPosition, Vector3 direction, float force)
+        public void ShootPoop(float force, float progress = -1f)
         {
             var poop = ProjectilePool.GetPoop();
-            poop.transform.position = GetSemiCirclePosition(_radius);
-            direction = (_vipTransform.position - poop.transform.position).normalized;
+            poop.transform.position = GetSemiCirclePosition(progress, _radius);
+            var direction = (_vipTransform.position - poop.transform.position).normalized;
             poop.transform.forward = direction + Vector3.one * Random.Range(0.5f, 3f);
             poop.Rigidbody.AddForce(direction * force, ForceMode.Impulse);
             poop.Rigidbody.AddTorque(Random.insideUnitSphere * _torqueForce, ForceMode.Impulse);
         }
-
-        [SerializeField] private Transform _startPosition;
-        [SerializeField] private Vector3 _shootDirection;
+        
         [SerializeField] private float _force;
         [SerializeField] private float _torqueForce;
         [SerializeField] private float _radius;
@@ -75,7 +73,7 @@ namespace ZhengHua
             {
                 for (int i = 0; i < _levelData.levelDataItems[_levelIndex].shootCount; i++)
                 {
-                    ShootPoop();
+                    ShootPoop(_force, _levelData.levelDataItems[_levelIndex].progress);
                     yield return new WaitForSeconds(_levelData.levelDataItems[_levelIndex].everyDelay);
                 }
 
@@ -99,10 +97,9 @@ namespace ZhengHua
             GameManager.OnStage2Finish?.Invoke(true);
         }
 
-        private Vector3 GetSemiCirclePosition(float radius)
+        private Vector3 GetSemiCirclePosition(float progress, float radius)
         {
-            // 將索引轉換為 0 到 1 之間的比例
-            float progress = Random.Range(0.2f, 0.8f);
+            progress = Mathf.Clamp(progress, 0f, 1f);
         
             float angleRange = 180f;
         
@@ -125,7 +122,7 @@ namespace ZhengHua
 
         public void ShootPoop()
         {
-            ShootPoop(_startPosition.position, _shootDirection, _force);
+            ShootPoop(_force);
         }
     }
 }

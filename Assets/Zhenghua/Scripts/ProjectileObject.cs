@@ -20,6 +20,17 @@ namespace ZhengHua
             if(_rigidbody == null) _rigidbody = GetComponent<Rigidbody>();
         }
 
+        protected void OnEnable()
+        {
+            _rigidbody.useGravity = false;
+        }
+
+        protected void OnCollisionEnter(Collision other)
+        {
+            if (_rigidbody.useGravity == false)
+                _rigidbody.useGravity = true;
+        }
+
         protected void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("DeadZone"))
@@ -27,6 +38,9 @@ namespace ZhengHua
                 _rigidbody.linearVelocity = Vector3.zero;
                 this.gameObject.SetActive(false);
             }
+            
+            if (_rigidbody.useGravity == false)
+                _rigidbody.useGravity = true;
         }
     }
 }
