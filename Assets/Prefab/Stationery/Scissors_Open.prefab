@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5724855584965854090}
   - component: {fileID: 123677521352046755}
   m_Layer: 7
-  m_Name: Scissors_Corrected
+  m_Name: Scissors_Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
