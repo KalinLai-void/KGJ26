@@ -17,7 +17,7 @@ namespace KalinKonta
 
         private void Update()
         {
-            if (GameManager.Instance.currentStage != GameManager.State.OnStage1Start) return;
+            if (GameManager.currentStage != GameManager.State.OnStage1Start) return;
 
             UpdateTimeText();
         }
@@ -26,8 +26,8 @@ namespace KalinKonta
         {
             if (timeText == null) return;
 
-            int mins = (int)GameManager.Instance.stage1Time / 60;
-            int secs = (int)GameManager.Instance.stage1Time % 60;
+            int mins = (int)GameManager.stage1Time / 60;
+            int secs = (int)GameManager.stage1Time % 60;
 
             timeText.text = mins.ToString("00") + ":" + secs.ToString("00");
         }

@@ -20,20 +20,21 @@ namespace KalinKonta.Stationery
         private BoxCollider spawnArea;
         private List<GameObject> spawnedItems = new List<GameObject>();
 
-        private void OnEnable()
-        {
-            GameManager.OnStage1Start?.AddListener(GenerateStationery);
-        }
 
         private void OnDisable()
         {
             ClearOldObjs();
-            GameManager.OnStage1Start?.RemoveListener(GenerateStationery);
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.OnStage2Finish?.RemoveAllListeners();
         }
 
         private void Awake()
         {
             if (Instance == null) Instance = this;
+            GameManager.OnStage1Start?.AddListener(GenerateStationery);
         }
 
         void Start()
@@ -47,6 +48,7 @@ namespace KalinKonta.Stationery
                     item.layer = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
                 }
             }
+            GenerateStationery();
         }
 
         private void ClearOldObjs()

@@ -16,7 +16,6 @@ namespace KalinKonta
             {
                 Instance = this;
                 controls = new PlayerInputActions();
-                DontDestroyOnLoad(gameObject);
             }
             else
             {

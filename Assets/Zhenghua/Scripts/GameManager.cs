@@ -23,14 +23,16 @@ namespace ZhengHua
         public static UnityEvent<bool> OnStage2Finish => Instance?.onStage2FinishEvent;
         private bool _isWin = false;
 
-        public State currentStage;
+        public static State currentStage;
+
+        public float stage1TotalTime = 180f;
+        public static float stage1Time;
 
         private void Start()
         {
+            stage1Time = stage1TotalTime;
             Invoke(nameof(EnterStage1), 0.1f);
-        }
-
-        public float stage1Time = 180f;
+        }              
 
         private void Update()
         {

@@ -7,9 +7,11 @@ namespace KalinKonta.Stationery
 {
     public class StationeryWelder : MonoBehaviour
     {
+        [SerializeField] private LayerMask _floorLayer;
+
         private void OnEnable()
         {
-            GameManager.OnStage2Start.AddListener(ExecuteWeld);
+            GameManager.OnStage2Start?.AddListener(ExecuteWeld);
         }
 
         private void OnDisable()
@@ -31,6 +33,8 @@ namespace KalinKonta.Stationery
 
                 List<GameObject> neighbors = FindTouchingItems(itemA.gameObject, allItems);
 
+                bool shouldBeKinematic = false;
+
                 if (neighbors.Count > 0)
                 {
                     // Creating a new root (scale must Vector3.one)
@@ -51,6 +55,11 @@ namespace KalinKonta.Stationery
                     {
                         if (processed.Contains(member)) continue;
 
+                        if (CheckIsTouchingFloor(member))
+                        {
+                            shouldBeKinematic = true;
+                        }
+
                         if (member.TryGetComponent(out Rigidbody mRb)) Destroy(mRb);
                         if (member.TryGetComponent<DraggableStationery>(out var ds)) Destroy(ds);
 
@@ -58,14 +67,33 @@ namespace KalinKonta.Stationery
                         processed.Add(member);
                     }
 
+                    if (shouldBeKinematic)
+                    {
+                        rootRb.isKinematic = true;
+                    }
+                    else
+                    {
+                        rootRb.constraints = itemA.GetComponent<Rigidbody>().constraints;
+                    }
+
                     rootRb.ResetCenterOfMass();
                 }
                 else
                 {
                     if (itemA.TryGetComponent<DraggableStationery>(out var ds)) Destroy(ds);
-                    if (itemA.TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = false;
+                    if (itemA.TryGetComponent<Rigidbody>(out var rb))
+                    {
+                        rb.isKinematic = CheckIsTouchingFloor(itemA.gameObject);
+                    }
                 }
             }
+        }
+
+        private bool CheckIsTouchingFloor(GameObject obj)
+        {
+            Collider col = obj.GetComponent<Collider>();
+            // 使用 OverlapCheck 檢查該 Collider 是否與地板層碰撞
+            return Physics.CheckBox(col.bounds.center, col.bounds.extents, obj.transform.rotation, _floorLayer);
         }
 
         private List<GameObject> FindTouchingItems(GameObject root, DraggableStationery[] allItems)
