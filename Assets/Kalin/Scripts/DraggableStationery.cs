@@ -7,7 +7,7 @@ namespace KalinKonta.Stationery
 {
     public class DraggableStationery : Stationery, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
-        [SerializeField] private float rotationSpeed = 0.05f;
+        public float rotationSpeed = 0.05f;
         private bool isDragging = false;
 
         private void Awake()
@@ -26,11 +26,12 @@ namespace KalinKonta.Stationery
         private void HandleScrollRotation()
         {
             Vector2 scroll = InputManager.Instance.ScrollValue;
+            Debug.Log(scroll);
 
             if (Mathf.Abs(scroll.y) > 0.01f)
             {
                 float rotationAmount = scroll.y * rotationSpeed;
-                transform.Rotate(0, 0, rotationAmount);
+                transform.Rotate(0, rotationAmount, 0);
             }
         }
 
