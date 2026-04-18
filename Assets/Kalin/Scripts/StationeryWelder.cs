@@ -14,7 +14,7 @@ namespace KalinKonta.Stationery
 
         private void OnDisable()
         {
-            GameManager.OnStage2Start.RemoveListener(ExecuteWeld);
+            GameManager.OnStage2Start?.RemoveListener(ExecuteWeld);
         }
 
         public void ExecuteWeld()

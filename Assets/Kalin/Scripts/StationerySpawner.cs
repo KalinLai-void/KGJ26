@@ -28,7 +28,7 @@ namespace KalinKonta.Stationery
         private void OnDisable()
         {
             ClearOldObjs();
-            GameManager.OnStage1Start.RemoveListener(GenerateStationery);
+            GameManager.OnStage1Start?.RemoveListener(GenerateStationery);
         }
 
         private void Awake()
@@ -95,13 +95,18 @@ namespace KalinKonta.Stationery
             }
         }
 
+
         private void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent(out Stationery stationery))
             {
-                spawnedItems.Remove(stationery.gameObject);
-                stationery.transform.SetParent(null); // inpendent gameobject (remove from spawner)
-                GenerateStationery(); // new round
+                if (stationery.GetComponent<DraggableStationery>().state == DraggableState.WaitToSelected)
+                {
+                    stationery.GetComponent<DraggableStationery>().state = DraggableState.Free;
+                    spawnedItems.Remove(stationery.gameObject);
+                    stationery.transform.SetParent(null); // inpendent gameobject (remove from spawner)
+                    GenerateStationery(); // new round
+                }
             }
         }
     }
