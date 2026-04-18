@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2893343243361133657}
   - component: {fileID: 5724855584965854090}
   - component: {fileID: 123677521352046755}
+  - component: {fileID: -1394401290786824086}
   m_Layer: 7
   m_Name: Scissors_Open
   m_TagString: Untagged
@@ -141,3 +142,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 24
   m_CollisionDetection: 0
+--- !u!114 &-1394401290786824086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686130503074612620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b218a66bdeabb41499d921787e0a62cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.DraggableStationery
+  health: 0
+  totalHealth: 10
+  rotationSpeed: 0.05
+  state: 0

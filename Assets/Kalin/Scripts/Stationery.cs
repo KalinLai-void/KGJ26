@@ -1,4 +1,7 @@
 using UnityEngine;
+using ZhengHua;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace KalinKonta.Stationery
 {
@@ -6,10 +9,41 @@ namespace KalinKonta.Stationery
     {
         [SerializeField] private float health;
         [SerializeField] private float totalHealth;
+        [SerializeField] private LayerMask layerMask;
 
-        protected void Start()
+        public float TotalHealth
         {
-            
+            set => totalHealth = value;
+            get => totalHealth;
+        }
+
+        public float Health
+        {
+            set => health = Mathf.Clamp(value, 0, totalHealth);
+            get => health;
+        }
+
+        protected virtual void Start()
+        {
+            health = totalHealth;
+        }
+
+        public void Damage(float value)
+        {
+            health -= value;
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        protected void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.GetComponent<ProjectileObject>())
+            {
+                Damage(3);
+            }
         }
     }
 }

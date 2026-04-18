@@ -10,12 +10,13 @@ namespace KalinKonta.Stationery
         public static StationerySpawner Instance;
 
         [Header("Spawn Settings")]
-        public LayerMask layer;
-        public List<GameObject> stationeryPrefabs;
-        public int spawnCount = 3;
+        [SerializeField] private LayerMask layer;
+        [SerializeField] private List<GameObject> stationeryPrefabs;
+        [SerializeField] private int spawnCount = 3;
 
         [Header("Draggable Settings")]
-        public float rotationSpeed = 2f;
+        [SerializeField] private GameObject pool;
+        [SerializeField] private float rotationSpeed = 2f;
 
         [Header("Hover Settings")]
         [SerializeField] private Outline.Mode OutlineMode = Outline.Mode.OutlineAll;
@@ -111,6 +112,10 @@ namespace KalinKonta.Stationery
                 {
                     go.AddComponent<DraggableStationery>().rotationSpeed = rotationSpeed;
                 }
+                else
+                {
+                    go.GetComponent<DraggableStationery>().rotationSpeed = rotationSpeed;
+                }
 
                 spawnedItems.Add(go);
             }
@@ -119,7 +124,7 @@ namespace KalinKonta.Stationery
         public void SelectedObj(GameObject obj)
         {
             spawnedItems.Remove(obj);
-            obj.transform.SetParent(null); // inpendent gameobject (remove from spawner)
+            obj.transform.SetParent(pool.transform); // inpendent gameobject (remove from spawner)
             ClearOldObjs();
         }
     }

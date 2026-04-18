@@ -1,5 +1,6 @@
 ﻿using KalinKonta.Stationery;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using ZhengHua;
 
@@ -8,6 +9,8 @@ namespace KalinKonta.Stationery
     public class StationeryWelder : MonoBehaviour
     {
         [SerializeField] private LayerMask _floorLayer;
+
+        private bool isWeldingPerformed = false;
 
         private void OnEnable()
         {
@@ -21,6 +24,9 @@ namespace KalinKonta.Stationery
 
         public void ExecuteWeld()
         {
+            if (isWeldingPerformed) return;
+            isWeldingPerformed = true;
+
             StationerySpawner.Instance.enabled = false;
 
             DraggableStationery[] allItems = FindObjectsByType<DraggableStationery>(FindObjectsSortMode.None);
@@ -43,6 +49,7 @@ namespace KalinKonta.Stationery
                     groupRoot.transform.rotation = itemA.transform.rotation;
                     groupRoot.transform.localScale = Vector3.one;
                     groupRoot.layer = itemA.gameObject.layer;
+                    groupRoot.transform.SetParent(itemA.transform.parent);
 
                     Rigidbody rootRb = groupRoot.AddComponent<Rigidbody>();
                     rootRb.linearDamping = 2f;
@@ -61,7 +68,10 @@ namespace KalinKonta.Stationery
                         }
 
                         if (member.TryGetComponent(out Rigidbody mRb)) Destroy(mRb);
-                        if (member.TryGetComponent<DraggableStationery>(out var ds)) Destroy(ds);
+                        if (member.TryGetComponent(out DraggableStationery ds))
+                        {
+                            ds.canDragging = false;
+                        }
 
                         member.transform.SetParent(groupRoot.transform, true);
                         processed.Add(member);
@@ -80,8 +90,12 @@ namespace KalinKonta.Stationery
                 }
                 else
                 {
-                    if (itemA.TryGetComponent<DraggableStationery>(out var ds)) Destroy(ds);
-                    if (itemA.TryGetComponent<Rigidbody>(out var rb))
+                    if (itemA.TryGetComponent(out DraggableStationery ds))
+                    {
+                        ds.canDragging = false;
+                    }
+
+                    if (itemA.TryGetComponent(out Rigidbody rb))
                     {
                         rb.isKinematic = CheckIsTouchingFloor(itemA.gameObject);
                     }
@@ -92,7 +106,6 @@ namespace KalinKonta.Stationery
         private bool CheckIsTouchingFloor(GameObject obj)
         {
             Collider col = obj.GetComponent<Collider>();
-            // 使用 OverlapCheck 檢查該 Collider 是否與地板層碰撞
             return Physics.CheckBox(col.bounds.center, col.bounds.extents, obj.transform.rotation, _floorLayer);
         }
 

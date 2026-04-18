@@ -70,6 +70,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 06acb8f50e541c74f9d7cd2b4db1ee1d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7076462568080532683}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 06acb8f50e541c74f9d7cd2b4db1ee1d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 128653538912785830}
   m_SourcePrefab: {fileID: 100100000, guid: 06acb8f50e541c74f9d7cd2b4db1ee1d, type: 3}
 --- !u!1 &3532657051159033852 stripped
 GameObject:
@@ -125,3 +128,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 24
   m_CollisionDetection: 0
+--- !u!114 &128653538912785830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3532657051159033852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b218a66bdeabb41499d921787e0a62cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.DraggableStationery
+  health: 10
+  totalHealth: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  rotationSpeed: 0.05
+  state: 0
+  canDragging: 1
