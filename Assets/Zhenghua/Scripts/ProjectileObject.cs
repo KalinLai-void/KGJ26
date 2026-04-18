@@ -20,7 +20,7 @@ namespace ZhengHua
             if(_rigidbody == null) _rigidbody = GetComponent<Rigidbody>();
         }
 
-        protected void OnEnable()
+        protected virtual void OnEnable()
         {
             _rigidbody.useGravity = false;
         }

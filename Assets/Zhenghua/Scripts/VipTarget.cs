@@ -33,6 +33,14 @@ namespace ZhengHua
             }
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Poop"))
+            {
+                LoseAction();
+            }
+        }
+
 
         private void Reset()
         {
