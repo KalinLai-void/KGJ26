@@ -1,35 +1,26 @@
-﻿using UnityEngine;
+﻿using KalinKonta;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DraggableStationery : MonoBehaviour
+namespace KalinKonta.Stationery
 {
-    private bool isDragging = false;
-    private Vector3 zOffset;
-
-    void Start()
+    public class DraggableStationery : Stationery, IPointerDownHandler, IDragHandler
     {
-        
-    }
+        private void Awake()
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
 
-    void OnMouseDown()
-    {
-        isDragging = true;
-        zOffset = Camera.main.WorldToScreenPoint(transform.position) - Input.mousePosition;
-    }
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            Debug.Log($"Click on {gameObject.name}");
+        }
 
-    void OnMouseDrag()
-    {
-        if (!isDragging) return;
-
-        Vector3 curMousePos = Input.mousePosition + zOffset;
-        curMousePos.z = Camera.main.WorldToScreenPoint(transform.position).z;
-
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(curMousePos);
-        transform.position = worldPos;
-    }
-
-    void OnMouseUp()
-    {
-        isDragging = false;
-        // 如果是第一次從「按鈕位」拉下來，可以在這裡觸發一些邏輯
+        public void OnDrag(PointerEventData eventData)
+        {
+            Vector3 screenPos = eventData.position;
+            screenPos.z = Camera.main.WorldToScreenPoint(transform.position).z;
+            transform.position = Camera.main.ScreenToWorldPoint(screenPos);
+        }
     }
 }

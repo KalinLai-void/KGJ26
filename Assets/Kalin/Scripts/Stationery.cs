@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KalinKonta
+namespace KalinKonta.Stationery
 {
     public class Stationery : MonoBehaviour
     {

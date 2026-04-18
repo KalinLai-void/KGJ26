@@ -1,0 +1,86 @@
+﻿using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.Events;
+
+namespace KalinKonta.Stationery
+{
+    public class StationerySpawner : MonoBehaviour
+    {
+        public static StationerySpawner Instance;
+
+        [Header("Spawn Settings")]
+        public List<GameObject> stationeryPrefabs;
+        public int spawnCount = 3;
+
+        private BoxCollider spawnArea;
+        private List<GameObject> spawnedItems = new List<GameObject>();
+
+        private void Awake()
+        {
+            if (Instance == null) Instance = this;
+        }
+
+        void Start()
+        {
+            spawnArea = GetComponent<BoxCollider>();
+            GenerateStationery();
+        }
+
+        private void ClearOldObjs()
+        {
+            foreach (var item in spawnedItems)
+            {
+                if (item != null) Destroy(item);
+            }
+            spawnedItems.Clear();
+        }
+
+        public void GenerateStationery()
+        {
+            ClearOldObjs();
+
+            if (stationeryPrefabs == null || stationeryPrefabs.Count == 0) return;
+
+            // Get boundary info of box collider
+            Bounds bounds = spawnArea.bounds;
+            float startX = bounds.min.x;
+            float endX = bounds.max.x;
+            float width = endX - startX;
+
+            float step = width / (spawnCount + 1);
+
+            List<GameObject> pool = new List<GameObject>(stationeryPrefabs);
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                if (pool.Count == 0) break;
+
+                float posX = startX + (step * (i + 1));
+                Vector3 spawnPos = new Vector3(posX, bounds.center.y, bounds.center.z);
+
+                int randomIndex = Random.Range(0, pool.Count);
+                GameObject prefab = pool[randomIndex];
+
+                GameObject go = Instantiate(prefab, spawnPos, Quaternion.identity);
+                go.transform.SetParent(this.transform);
+                if (!go.GetComponent<DraggableStationery>()) go.AddComponent<DraggableStationery>();
+
+                spawnedItems.Add(go);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent(out Stationery stationery))
+            {
+                spawnedItems.Remove(stationery.gameObject);
+                GenerateStationery(); // new round
+            }
+        }
+
+        private void OnDisable()
+        {
+            ClearOldObjs();
+        }
+    }
+}
