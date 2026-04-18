@@ -13,6 +13,9 @@ namespace KalinKonta.Stationery
         public List<GameObject> stationeryPrefabs;
         public int spawnCount = 3;
 
+        [Header("Draggable Settings")]
+        public float rotationSpeed = 2f;
+
         private BoxCollider spawnArea;
         private List<GameObject> spawnedItems = new List<GameObject>();
 
@@ -73,7 +76,10 @@ namespace KalinKonta.Stationery
 
                 GameObject go = Instantiate(prefab, spawnPos, prefab.transform.rotation);
                 go.transform.SetParent(this.transform);
-                if (!go.GetComponent<DraggableStationery>()) go.AddComponent<DraggableStationery>();
+                if (!go.GetComponent<DraggableStationery>())
+                {
+                    go.AddComponent<DraggableStationery>().rotationSpeed = rotationSpeed;
+                }
 
                 spawnedItems.Add(go);
             }
