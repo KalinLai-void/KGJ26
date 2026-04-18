@@ -95,19 +95,11 @@ namespace KalinKonta.Stationery
             }
         }
 
-
-        private void OnTriggerExit(Collider other)
+        public void SelectedObj(GameObject obj)
         {
-            if (other.TryGetComponent(out Stationery stationery))
-            {
-                if (stationery.GetComponent<DraggableStationery>().state == DraggableState.WaitToSelected)
-                {
-                    stationery.GetComponent<DraggableStationery>().state = DraggableState.Free;
-                    spawnedItems.Remove(stationery.gameObject);
-                    stationery.transform.SetParent(null); // inpendent gameobject (remove from spawner)
-                    GenerateStationery(); // new round
-                }
-            }
+            spawnedItems.Remove(obj);
+            obj.transform.SetParent(null); // inpendent gameobject (remove from spawner)
+            ClearOldObjs();
         }
     }
 }

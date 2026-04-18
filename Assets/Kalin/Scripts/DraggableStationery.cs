@@ -5,22 +5,15 @@ using UnityEngine.InputSystem;
 
 namespace KalinKonta.Stationery
 {
-    public enum DraggableState { Free, WaitToSelected };
 
     public class DraggableStationery : Stationery, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
         [HideInInspector] public float rotationSpeed = 0.05f;
         private bool isDragging = false;
 
-        private Vector3 originPos;
-        private Quaternion originRot;
-
-        [HideInInspector] public DraggableState state;
-
         private void Awake()
         {
             GetComponent<Rigidbody>().isKinematic = true;
-            state = DraggableState.WaitToSelected;
         }
 
         private void Update()
@@ -45,8 +38,7 @@ namespace KalinKonta.Stationery
         public void OnPointerDown(PointerEventData eventData)
         {
             isDragging = true;
-            originPos = gameObject.transform.position;
-            originRot = gameObject.transform.rotation;
+            StationerySpawner.Instance.SelectedObj(gameObject);
             Debug.Log($"Click on {gameObject.name}");
         }
 
@@ -60,12 +52,7 @@ namespace KalinKonta.Stationery
         public void OnPointerUp(PointerEventData eventData)
         {
             isDragging = false;
-
-            if (state == DraggableState.WaitToSelected) // not selected yet
-            {
-                gameObject.transform.position = originPos;
-                gameObject.transform.rotation = originRot;
-            }
+            StationerySpawner.Instance.GenerateStationery(); // new round
         }
     }
 }
