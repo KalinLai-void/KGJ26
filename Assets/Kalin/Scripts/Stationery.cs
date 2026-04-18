@@ -1,7 +1,5 @@
 using UnityEngine;
 using ZhengHua;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace KalinKonta.Stationery
 {
@@ -40,7 +38,6 @@ namespace KalinKonta.Stationery
 
         protected void OnCollisionEnter(Collision collision)
         {
-            Debug.Log($"<color=yellow>【物理偵測】</color> {gameObject.name} 被 {collision.gameObject.name} 撞到了！");
             if (collision.gameObject.GetComponent<ProjectileObject>())
             {
                 Damage(3); // TODO: Intergrating damage from where
