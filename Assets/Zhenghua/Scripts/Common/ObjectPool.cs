@@ -21,6 +21,7 @@ namespace ZhengHua.Common
                 if (!poolObject.activeInHierarchy)
                 {
                     go = poolObject;
+                    go.SetActive(true);
                     break;
                 }
             }

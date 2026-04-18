@@ -51,8 +51,6 @@ namespace ZhengHua
         {
             print("EnterStage2");
             onStage2StartEvent?.Invoke();
-            
-            Invoke(nameof(Stage2End), 5f);
         }
 
         private void Stage2End()
