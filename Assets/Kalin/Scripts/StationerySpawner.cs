@@ -17,6 +17,11 @@ namespace KalinKonta.Stationery
         [Header("Draggable Settings")]
         public float rotationSpeed = 2f;
 
+        [Header("Hover Settings")]
+        [SerializeField] private Outline.Mode OutlineMode = Outline.Mode.OutlineAll;
+        [SerializeField] private Color OutlineColor = Color.yellow;
+        [SerializeField] private float OutlineWidth = 1f;
+
         private BoxCollider spawnArea;
         private List<GameObject> spawnedItems = new List<GameObject>();
 
@@ -88,6 +93,20 @@ namespace KalinKonta.Stationery
 
                 GameObject go = Instantiate(prefab, spawnPos, prefab.transform.rotation);
                 go.transform.SetParent(this.transform);
+
+                if (!go.GetComponentInChildren<Outline>())
+                {
+                    var outline = go.AddComponent<Outline>();
+                    outline.enabled = false;
+
+                    StationeryHighlight highlighter = go.GetComponent<StationeryHighlight>();
+                    if (highlighter == null) highlighter = go.AddComponent<StationeryHighlight>();
+
+                    highlighter.OutlineMode = OutlineMode;
+                    highlighter.OutlineColor = OutlineColor;
+                    highlighter.OutlineWidth = OutlineWidth;
+                }
+
                 if (!go.GetComponent<DraggableStationery>())
                 {
                     go.AddComponent<DraggableStationery>().rotationSpeed = rotationSpeed;

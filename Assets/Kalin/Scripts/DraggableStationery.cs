@@ -1,4 +1,5 @@
 ﻿using KalinKonta;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -7,10 +8,13 @@ namespace KalinKonta.Stationery
 {
     public enum DraggableState { Free, WaitForSelected };
 
-    public class DraggableStationery : Stationery, IPointerDownHandler, IDragHandler, IPointerUpHandler
+    public class DraggableStationery : Stationery, 
+        IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [HideInInspector] public float rotationSpeed = 0.05f;
         private bool isDragging = false;
+
+        private StationeryHighlight highlighter;
 
         public DraggableState state;
 
@@ -18,6 +22,12 @@ namespace KalinKonta.Stationery
         {
             GetComponent<Rigidbody>().isKinematic = true;
             state = DraggableState.WaitForSelected;
+        }
+
+        private void Start()
+        {
+            highlighter = GetComponent<StationeryHighlight>();
+            if (highlighter == null) highlighter = gameObject.AddComponent<StationeryHighlight>();
         }
 
         private void Update()
@@ -39,8 +49,20 @@ namespace KalinKonta.Stationery
             }
         }
 
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (highlighter != null) highlighter.ToggleHighlight(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (highlighter != null) highlighter.ToggleHighlight(false);
+        }
+
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (highlighter != null) highlighter.ToggleHighlight(false);
+
             isDragging = true;
             if (state == DraggableState.WaitForSelected) 
                 StationerySpawner.Instance.SelectedObj(gameObject);
@@ -56,6 +78,8 @@ namespace KalinKonta.Stationery
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (highlighter != null) highlighter.ToggleHighlight(true);
+
             isDragging = false;
             if (state == DraggableState.WaitForSelected) 
                 StationerySpawner.Instance.GenerateStationery(); // new round
