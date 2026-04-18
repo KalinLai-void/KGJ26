@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using ZhengHua.Common;
+using ZhengHua.ScriptableObjects;
+using Random = UnityEngine.Random;
 
 namespace ZhengHua
 {
@@ -21,7 +25,80 @@ namespace ZhengHua
         [SerializeField] private float _force;
         [SerializeField] private float _torqueForce;
         [SerializeField] private float _radius;
-        
+        [SerializeField] private LevelData _levelData;
+        private int _levelIndex = 0;
+        private float _gameTime = 0f;
+        private bool _isGameStart = false;
+        private bool _inLevel = false;
+        private bool _isLevelEnd = false;
+
+        private void Start()
+        {
+            GameManager.OnStage2Start?.AddListener(OnGameStart);
+            GameManager.OnStage2Finish?.AddListener(OnGameEnd);
+        }
+
+        private void OnGameStart()
+        {
+            _levelIndex = 0;
+            _gameTime = 0f;
+            _isGameStart = true;
+            _inLevel = false;
+            _isLevelEnd = false;
+        }
+
+        private void OnGameEnd(bool isWin)
+        {
+            _isGameStart = false;
+        }
+
+        private void Update()
+        {
+            if (_isGameStart == false)
+                return;
+            
+            if(_isGameStart)
+                _gameTime += Time.deltaTime;
+
+            if (!_inLevel && !_isLevelEnd && _gameTime > _levelData.levelDataItems[_levelIndex].startTime)
+            {
+                _inLevel = true;
+                EnterLevel();
+            }
+        }
+
+        private void EnterLevel()
+        {
+            StartCoroutine(_StartCoroutine());
+
+            IEnumerator _StartCoroutine()
+            {
+                for (int i = 0; i < _levelData.levelDataItems[_levelIndex].shootCount; i++)
+                {
+                    ShootPoop();
+                    yield return new WaitForSeconds(_levelData.levelDataItems[_levelIndex].everyDelay);
+                }
+
+                _inLevel = false;
+                _levelIndex++;
+                if (_levelIndex > _levelData.levelDataItems.Length - 1)
+                {
+                    _inLevel = true;
+                    _isLevelEnd = true;
+
+                    if (_isLevelEnd)
+                    {
+                        Invoke(nameof(Stage2End), 5f);
+                    }
+                }
+            }
+        }
+
+        private void Stage2End()
+        {
+            GameManager.OnStage2Finish?.Invoke(true);
+        }
+
         private Vector3 GetSemiCirclePosition(float radius)
         {
             // 將索引轉換為 0 到 1 之間的比例
