@@ -7,7 +7,7 @@ namespace KalinKonta.Stationery
 {
     public class DraggableStationery : Stationery, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
-        public float rotationSpeed = 0.05f;
+        [HideInInspector] public float rotationSpeed = 0.05f;
         private bool isDragging = false;
 
         private void Awake()

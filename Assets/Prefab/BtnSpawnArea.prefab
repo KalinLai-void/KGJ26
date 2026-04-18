@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7909843104406824388}
   - component: {fileID: 4024805566219551370}
   - component: {fileID: 6217455397293726326}
+  - component: {fileID: 6352759463244210722}
   m_Layer: 0
   m_Name: BtnSpawnArea
   m_TagString: Untagged
@@ -82,3 +83,16 @@ MonoBehaviour:
   - {fileID: 6666754819065177878, guid: f31dc9d909fea894fb661cf0bac20c69, type: 3}
   - {fileID: 2480828172757798673, guid: d15c9faa316dc394d82d05f79275bed6, type: 3}
   spawnCount: 3
+  rotationSpeed: 5
+--- !u!114 &6352759463244210722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952887289367786173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39281d2ed86b7a14c9779eaafed590ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.StationeryWelder

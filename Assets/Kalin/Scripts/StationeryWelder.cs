@@ -1,6 +1,7 @@
 ﻿using KalinKonta.Stationery;
 using System.Collections.Generic;
 using UnityEngine;
+using ZhengHua;
 
 namespace KalinKonta.Stationery
 {
@@ -8,12 +9,18 @@ namespace KalinKonta.Stationery
     {
         private void OnEnable()
         {
-            StationerySpawner.Instance.enabled = false;
-            ExecuteWeld();
+            GameManager.OnStage2Start.AddListener(ExecuteWeld);
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnStage2Start.RemoveListener(ExecuteWeld);
         }
 
         public void ExecuteWeld()
         {
+            StationerySpawner.Instance.enabled = false;
+
             DraggableStationery[] allItems = FindObjectsByType<DraggableStationery>(FindObjectsSortMode.None);
 
             HashSet<GameObject> processed = new HashSet<GameObject>(); // Avoid repeats

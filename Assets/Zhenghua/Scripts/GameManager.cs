@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Events;
 using ZhengHua.Common;
@@ -6,8 +7,11 @@ using Random = UnityEngine.Random;
 
 namespace ZhengHua
 {
+
     public class GameManager : Singleton<GameManager>
     {
+        public enum State { OnStage1Start, OnStage1Finish, OnStage2Start, OnStage2Finish }
+
         [SerializeField] private UnityEvent onStage1StartEvent = new();
         [SerializeField] private UnityEvent onStage1FinishEvent = new();
         public static UnityEvent OnStage1Start => Instance?.onStage1StartEvent;
@@ -19,22 +23,26 @@ namespace ZhengHua
         public static UnityEvent<bool> OnStage2Finish => Instance?.onStage2FinishEvent;
         private bool _isWin = false;
 
+        public State currentStage;
+
         private void Start()
         {
             Invoke(nameof(EnterStage1), 0.1f);
         }
 
-        [SerializeField] private float _stage1Time = 180f;
+        public float stage1Time = 180f;
 
         private void EnterStage1()
         {
+            currentStage = State.OnStage1Start;
             print("EnterStage1");
             onStage1StartEvent?.Invoke();
-            Invoke(nameof(Stage1TimeOut), _stage1Time);
+            //Invoke(nameof(Stage1TimeOut), stage1Time);
         }
 
-        private void Stage1TimeOut()
+        public void Stage1TimeOut()
         {
+            currentStage = State.OnStage1Finish;
             print("Stage1TimeOut");
             onStage1FinishEvent?.Invoke();
             Invoke(nameof(EnterStage2), 1f);
@@ -43,18 +51,21 @@ namespace ZhengHua
         public void SkipStage1()
         {
             print("SkipStage1");
-            CancelInvoke(nameof(Stage1TimeOut));
-            Stage1TimeOut();
+            //CancelInvoke(nameof(Stage1TimeOut));
+            stage1Time = 0;
+            Invoke(nameof(Stage1TimeOut), 1f);
         }
         
         private void EnterStage2()
         {
+            currentStage = State.OnStage2Start;
             print("EnterStage2");
             onStage2StartEvent?.Invoke();
         }
 
         private void Stage2End()
         {
+            currentStage = State.OnStage2Finish;
             print("Stage2End");
 
             _isWin = Random.value > 0.5f;

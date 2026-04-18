@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
+using ZhengHua;
 
 namespace KalinKonta.Stationery
 {
@@ -19,6 +20,17 @@ namespace KalinKonta.Stationery
         private BoxCollider spawnArea;
         private List<GameObject> spawnedItems = new List<GameObject>();
 
+        private void OnEnable()
+        {
+            GameManager.OnStage1Start.AddListener(GenerateStationery);
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnStage1Start.RemoveListener(GenerateStationery);
+            ClearOldObjs();
+        }
+
         private void Awake()
         {
             if (Instance == null) Instance = this;
@@ -35,8 +47,6 @@ namespace KalinKonta.Stationery
                     item.layer = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
                 }
             }
-
-            GenerateStationery();
         }
 
         private void ClearOldObjs()
@@ -93,11 +103,6 @@ namespace KalinKonta.Stationery
                 stationery.transform.SetParent(null); // inpendent gameobject (remove from spawner)
                 GenerateStationery(); // new round
             }
-        }
-
-        private void OnDisable()
-        {
-            ClearOldObjs();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ZhengHua.Common
         private static readonly object _lock = new object();
         private static bool _applicationIsQuitting = false;
 
-        protected static T Instance
+        public static T Instance
         {
             get
             {
