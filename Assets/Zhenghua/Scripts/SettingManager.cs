@@ -1,10 +1,9 @@
 using UnityEngine;
-
+using ZhengHua.Common;
 namespace ZhengHua
 {
-    public class SettingManager : MonoBehaviour
+    public class SettingManager : CommonCanvas
     {
-        [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private SliderHandle _mainVolumeHandle;
         [SerializeField] private SliderHandle _musicVolumeHandle;
         [SerializeField] private SliderHandle _sfxVolumeHandle;
@@ -13,31 +12,17 @@ namespace ZhengHua
         public void Apply()
         {
             UpdateSoundSetting();
-            HideSettingPanel();
+            HidePanel();
         }
 
         public void Cancel()
         {
-            HideSettingPanel();
+            HidePanel();
         }
 
         private void UpdateSoundSetting()
         {
             
-        }
-
-        public void ShowSettingPanel()
-        {
-            _canvasGroup.alpha = 1f;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
-        }
-
-        public void HideSettingPanel()
-        {
-            _canvasGroup.alpha = 0f;
-            _canvasGroup.blocksRaycasts = false;
-            _canvasGroup.interactable = false;
         }
     }
 }

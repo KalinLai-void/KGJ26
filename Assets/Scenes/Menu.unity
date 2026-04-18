@@ -960,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2694384096769339865, guid: 8192bf4cb69fa2243991d3bf70db88bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSettingPanel
+      value: ShowPanel
       objectReference: {fileID: 0}
     - target: {fileID: 2694384096769339865, guid: 8192bf4cb69fa2243991d3bf70db88bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
