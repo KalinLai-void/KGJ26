@@ -10,7 +10,7 @@ namespace ZhengHua.Common
         private static readonly object _lock = new object();
         private static bool _applicationIsQuitting = false;
 
-        public static T Instance
+        protected static T Instance
         {
             get
             {
@@ -25,7 +25,7 @@ namespace ZhengHua.Common
                     if (_instance == null)
                     {
                         // 在場景中搜尋是否已經存在該物件
-                        _instance = (T)FindObjectOfType(typeof(T));
+                        _instance = (T)FindAnyObjectByType(typeof(T));
 
                         // 如果場景中沒有，則建立一個新的
                         if (_instance == null)
@@ -50,7 +50,9 @@ namespace ZhengHua.Common
             // 如果是實體被手動刪除，標記為可重新建立（視需求調整）
             if (_instance == this)
             {
-                _applicationIsQuitting = true; 
+                _applicationIsQuitting = true;
+                _instance = null;
+                print($"Singleton {typeof(T)} is being destroyed. ");
             }
         }
         
@@ -60,6 +62,7 @@ namespace ZhengHua.Common
             if (_instance == null)
             {
                 _instance = this as T;
+                _applicationIsQuitting = false;
             }
             else if (_instance != this)
             {
