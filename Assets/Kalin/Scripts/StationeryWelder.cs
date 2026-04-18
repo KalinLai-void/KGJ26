@@ -16,36 +16,46 @@ namespace KalinKonta.Stationery
         {
             DraggableStationery[] allItems = FindObjectsByType<DraggableStationery>(FindObjectsSortMode.None);
 
-            HashSet<GameObject> processedObjects = new HashSet<GameObject>(); // Avoid repeats
+            HashSet<GameObject> processed = new HashSet<GameObject>(); // Avoid repeats
 
             foreach (var itemA in allItems)
             {
-                if (processedObjects.Contains(itemA.gameObject)) continue;
+                if (processed.Contains(itemA.gameObject)) continue;
 
                 List<GameObject> neighbors = FindTouchingItems(itemA.gameObject, allItems);
 
                 if (neighbors.Count > 0)
                 {
-                    Rigidbody rootRb = itemA.GetComponent<Rigidbody>();
-                    rootRb.isKinematic = false;
-                    processedObjects.Add(itemA.gameObject);
+                    // Creating a new root (scale must Vector3.one)
+                    GameObject groupRoot = new GameObject($"WeldedGroup_{itemA.name}");
+                    groupRoot.transform.position = itemA.transform.position;
+                    groupRoot.transform.rotation = itemA.transform.rotation;
+                    groupRoot.transform.localScale = Vector3.one;
 
-                    foreach (var neighbor in neighbors)
+                    Rigidbody rootRb = groupRoot.AddComponent<Rigidbody>();
+                    rootRb.linearDamping = 2f;
+                    rootRb.angularDamping = 2f;
+
+                    neighbors.Add(itemA.gameObject);
+
+                    foreach (var member in neighbors)
                     {
-                        if (processedObjects.Contains(neighbor)) continue;
+                        if (processed.Contains(member)) continue;
 
-                        Rigidbody neighborRb = neighbor.GetComponent<Rigidbody>();
-                        if (neighborRb != null) Destroy(neighborRb);
+                        if (member.TryGetComponent(out Rigidbody mRb)) Destroy(mRb);
+                        if (member.TryGetComponent<DraggableStationery>(out var ds)) Destroy(ds);
 
-                        var dragScript = neighbor.GetComponent<DraggableStationery>();
-                        if (dragScript != null) dragScript.enabled = false;
-                        neighbor.transform.SetParent(itemA.transform);
-
-                        processedObjects.Add(neighbor);
+                        member.transform.SetParent(groupRoot.transform, true);
+                        processed.Add(member);
                     }
+
                     rootRb.ResetCenterOfMass();
                 }
-                itemA.enabled = false;
+                else
+                {
+                    if (itemA.TryGetComponent<DraggableStationery>(out var ds)) Destroy(ds);
+                    if (itemA.TryGetComponent<Rigidbody>(out var rb)) rb.isKinematic = false;
+                }
             }
         }
 
