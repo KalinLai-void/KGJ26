@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ProjectileObject_Poop
   _maxSpeed: 6
   _rigidbody: {fileID: 1436152194010617642}
+  liveTime: 3
 --- !u!33 &1350420814636077985
 MeshFilter:
   m_ObjectHideFlags: 0
