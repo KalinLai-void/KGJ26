@@ -22,19 +22,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5122514
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000041728168
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.85883564
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000006996104
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 118.372
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a0b52c9978cb04548b0348755be78fc6, type: 3}
       propertyPath: m_Name
-      value: crayon
+      value: Crayon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
