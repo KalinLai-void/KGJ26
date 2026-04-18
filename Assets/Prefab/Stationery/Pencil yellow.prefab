@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7730228843835426341}
   - component: {fileID: 361279275785660579}
   - component: {fileID: 12691188617008031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pencil yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7215725151410355809}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.481333, y: 0, z: 0, w: 0.87653786}
-  m_LocalPosition: {x: -0.07, y: 0.2603938, z: 0.064314544}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.413, y: 0.52, z: -0.11425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 57.545, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &2314009707485411461
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -139,5 +139,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 16
   m_CollisionDetection: 0

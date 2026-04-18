@@ -31,6 +31,7 @@ namespace KalinKonta.Stationery
                     groupRoot.transform.position = itemA.transform.position;
                     groupRoot.transform.rotation = itemA.transform.rotation;
                     groupRoot.transform.localScale = Vector3.one;
+                    groupRoot.layer = itemA.gameObject.layer;
 
                     Rigidbody rootRb = groupRoot.AddComponent<Rigidbody>();
                     rootRb.linearDamping = 2f;

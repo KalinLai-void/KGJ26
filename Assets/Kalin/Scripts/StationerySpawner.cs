@@ -9,6 +9,7 @@ namespace KalinKonta.Stationery
         public static StationerySpawner Instance;
 
         [Header("Spawn Settings")]
+        public LayerMask layer;
         public List<GameObject> stationeryPrefabs;
         public int spawnCount = 3;
 
@@ -23,6 +24,15 @@ namespace KalinKonta.Stationery
         void Start()
         {
             spawnArea = GetComponent<BoxCollider>();
+
+            if (stationeryPrefabs != null)
+            {
+                foreach (var item in stationeryPrefabs)
+                {
+                    item.layer = Mathf.RoundToInt(Mathf.Log(layer.value, 2));
+                }
+            }
+
             GenerateStationery();
         }
 
