@@ -17,5 +17,9 @@ namespace Nori
         AttackWarning = 5,
         /// <summary>遊戲開始音效.ogg</summary>
         GameStart = 6,
+        /// <summary>文具 Hover（可先與 Button 同 clip，錄好後在 AudioLibrary 換檔）</summary>
+        StationeryHover = 7,
+        /// <summary>文具滾輪旋轉 tick（可先與 Button 同 clip）</summary>
+        StationeryRotate = 8,
     }
 }

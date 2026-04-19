@@ -12,6 +12,15 @@ namespace Nori
             Play(SfxId.Button);
         }
 
+    public void PlayStationeryHover()
+    {
+    Play(SfxId.StationeryHover);
+    }
+
+    public void PlayStationeryRotate()
+    {
+    Play(SfxId.StationeryRotate);
+    }
         public void Play(SfxId id, float volumeScale = 1f)
         {
             if (_audioLibrary == null)
