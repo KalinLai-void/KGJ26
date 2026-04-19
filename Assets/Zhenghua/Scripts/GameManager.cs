@@ -64,8 +64,13 @@ namespace ZhengHua
             //Invoke(nameof(Stage1TimeOut), stage1Time);
         }
 
+        bool isPerformed = false; // Avoid Repeats
+
         public void Stage1TimeOut()
         {
+            if (isPerformed) return;
+            isPerformed = true;
+
             currentStage = State.OnStage1Finish;
             print("Stage1TimeOut");
             onStage1FinishEvent?.Invoke();
