@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Nori;
 using UnityEngine;
 using ZhengHua.Common;
 using ZhengHua.ScriptableObjects;
@@ -10,19 +11,12 @@ namespace ZhengHua
     public class ProjectileManager : Singleton<ProjectileManager>
     {
         [SerializeField] private Transform _vipTransform;
-        public void ShootPoop(float force, float progress = -1f)
-        {
-            var poop = ProjectilePool.GetPoop();
-            poop.transform.position = GetSemiCirclePosition(progress, _radius);
-            var direction = (_vipTransform.position - poop.transform.position).normalized;
-            poop.transform.forward = direction + Vector3.one * Random.Range(0.5f, 3f);
-            poop.Rigidbody.AddForce(direction * force, ForceMode.Impulse);
-            poop.Rigidbody.AddTorque(Random.insideUnitSphere * _torqueForce, ForceMode.Impulse);
-        }
         
         [SerializeField] private float _force;
         [SerializeField] private float _torqueForce;
         [SerializeField] private float _radius;
+        [Header("Audio")]
+        [SerializeField] private AudioLibrary _audioLibrary;
         private LevelData _levelData;
         private int _levelIndex = 0;
         private float _gameTime = 0f;
@@ -44,6 +38,7 @@ namespace ZhengHua
             _inLevel = false;
             _isLevelEnd = false;
             _levelData = GameManager.CurrentLevel;
+            _audioLibrary.PlaySfx(SfxId.AttackWarning);
         }
 
         private void OnStageEnd()
@@ -63,6 +58,7 @@ namespace ZhengHua
             if (!_inLevel && !_isLevelEnd && _gameTime > _levelData.levelDataItems[_levelIndex].startTime)
             {
                 _inLevel = true;
+                
                 EnterLevel();
             }
         }
@@ -121,10 +117,16 @@ namespace ZhengHua
             // 使用 transform.up 是為了向上拱起
             return transform.position + (transform.right * x) + (transform.up * y);
         }
-
-        public void ShootPoop()
+        
+        private void ShootPoop(float force, float progress = -1f)
         {
-            ShootPoop(_force);
+            var poop = ProjectilePool.GetPoop();
+            poop.transform.position = GetSemiCirclePosition(progress, _radius);
+            var direction = (_vipTransform.position - poop.transform.position).normalized;
+            poop.transform.forward = direction + Vector3.one * Random.Range(0.5f, 3f);
+            poop.Rigidbody.AddForce(direction * force, ForceMode.Impulse);
+            poop.Rigidbody.AddTorque(Random.insideUnitSphere * _torqueForce, ForceMode.Impulse);
+            _audioLibrary.PlaySfx(SfxId.PoopShoot);
         }
     }
 }

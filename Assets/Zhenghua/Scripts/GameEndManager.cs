@@ -28,8 +28,31 @@ namespace ZhengHua
             
             ShowPanel();
         }
-        
-        public void BackToMenu() => SceneManager.LoadScene(MenuSceneName);
-        public void Retry() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        public void BackToMenu()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(MenuSceneName);
+        }
+
+        public void Retry()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public override void ShowPanel()
+        {
+            base.ShowPanel();
+
+            Time.timeScale = 0f;
+        }
+
+        public override void HidePanel()
+        {
+            base.HidePanel();
+            
+            Time.timeScale = 1f;
+        }
     }
 }
