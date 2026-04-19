@@ -69,7 +69,7 @@ namespace KalinKonta.Stationery
         private void Init()
         {
             leftCost = totalValidCost;
-            UIManager.Instance.UpdateCostText(leftCost);
+            UIManager.Instance.UpdateCostText(leftCost, 1);
 
             ClearOldObjs();
         }
@@ -143,7 +143,7 @@ namespace KalinKonta.Stationery
         public void SelectedObj(GameObject obj)
         {
             leftCost -= obj.GetComponent<DraggableStationery>().Cost;
-            UIManager.Instance.UpdateCostText(leftCost);
+            UIManager.Instance.UpdateCostText(leftCost, 1);
 
             spawnedItems.Remove(obj);
             obj.transform.SetParent(pool.transform); // inpendent gameobject (remove from spawner)

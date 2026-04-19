@@ -31,17 +31,24 @@ namespace ZhengHua
         public float stage1TotalTime = 180f;
         public static float stage1Time;
 
+        bool isPerformed = false; // Avoid Repeats
+
         private void Start()
         {
+            isPerformed = false;
             stage1Time = stage1TotalTime;
             Invoke(nameof(EnterStage1), 0.1f);
-        }              
+        }
 
         private void Update()
         {
-            if (stage1Time <= 0)
+            if (stage1Time <= 0 && !isPerformed)
             {
-                if (currentStage == State.OnStage1Start) SkipStage1();
+                if (currentStage == State.OnStage1Start)
+                {
+                    isPerformed = true;
+                    SkipStage1();
+                }
                 return;
             }
             stage1Time -= Time.deltaTime;
