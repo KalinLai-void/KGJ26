@@ -56,7 +56,7 @@ namespace ZhengHua
             currentStage = State.OnStage1Finish;
             print("Stage1TimeOut");
             onStage1FinishEvent?.Invoke();
-            Invoke(nameof(EnterStage2), 1f);
+            Invoke(nameof(EnterStage2), 0f);
         }
         
 
@@ -65,7 +65,7 @@ namespace ZhengHua
             print("SkipStage1");
             //CancelInvoke(nameof(Stage1TimeOut));
             stage1Time = 0;
-            Invoke(nameof(Stage1TimeOut), 1f);
+            Invoke(nameof(Stage1TimeOut), 0f);
         }
         
         private void EnterStage2()
