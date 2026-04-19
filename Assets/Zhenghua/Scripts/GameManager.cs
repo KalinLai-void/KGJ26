@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using ZhengHua.Common;
+using ZhengHua.ScriptableObjects;
 using Random = UnityEngine.Random;
 
 namespace ZhengHua
@@ -17,24 +18,31 @@ namespace ZhengHua
         public static UnityEvent OnStage1Finish => Instance?.onStage1FinishEvent; 
         
         [SerializeField] private UnityEvent onStage2StartEvent = new();
-        [SerializeField] private UnityEvent<bool> onStage2FinishEvent = new();
+        [SerializeField] private UnityEvent onStage2FinishEvent = new();
         public static UnityEvent OnStage2Start => Instance?.onStage2StartEvent;
-        public static UnityEvent<bool> OnStage2Finish => Instance?.onStage2FinishEvent;
+        public static UnityEvent OnStage2Finish => Instance?.onStage2FinishEvent;
         
         [SerializeField] private UnityEvent onClickedPoopEvent = new();
         public static UnityEvent OnClickedPoop => Instance?.onClickedPoopEvent;
         
-        private bool _isWin = false;
+        [SerializeField] private UnityEvent<bool> onGameEndEvent = new();
+        public static UnityEvent<bool> OnGameEnd => Instance?.onGameEndEvent;
 
         public static State currentStage;
 
         public float stage1TotalTime = 180f;
         public static float stage1Time;
 
+        [SerializeField] private LevelData[] gameLevel;
+        private int _levelIndex = 0;
+        public static LevelData CurrentLevel => Instance.gameLevel[Instance._levelIndex];
+
         private void Start()
         {
             stage1Time = stage1TotalTime;
             Invoke(nameof(EnterStage1), 0.1f);
+            
+            onStage2FinishEvent.AddListener(Stage2End);
         }              
 
         private void Update()
@@ -84,9 +92,13 @@ namespace ZhengHua
         {
             currentStage = State.OnStage2Finish;
             print("Stage2End");
-
-            _isWin = Random.value > 0.5f;
-            onStage2FinishEvent?.Invoke(_isWin);
+            
+            _levelIndex++;
+            if(_levelIndex > gameLevel.Length - 1)
+            {
+                onGameEndEvent?.Invoke(true);
+            }
+            onStage1StartEvent?.Invoke();
         }
     }
 }

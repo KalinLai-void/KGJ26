@@ -942,7 +942,13 @@ MonoBehaviour:
   onClickedPoopEvent:
     m_PersistentCalls:
       m_Calls: []
+  onGameEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stage1TotalTime: 180
+  gameLevel:
+  - {fileID: 11400000, guid: 3bf45901eebb7fb4eaeffc2ac22b0e7c, type: 2}
+  - {fileID: 11400000, guid: c210c1e7ceb3b774d8262bb4421e21ac, type: 2}
 --- !u!4 &501893110
 Transform:
   m_ObjectHideFlags: 0
@@ -3148,7 +3154,6 @@ MonoBehaviour:
   _force: 5
   _torqueForce: 1.2
   _radius: 3
-  _levelData: {fileID: 11400000, guid: 3bf45901eebb7fb4eaeffc2ac22b0e7c, type: 2}
 --- !u!4 &1693629307
 Transform:
   m_ObjectHideFlags: 0
