@@ -14,12 +14,16 @@ namespace Nori
 
     public void PlayStationeryHover()
     {
-    Play(SfxId.StationeryHover);
+        Play(SfxId.StationeryHover);
     }
 
     public void PlayStationeryRotate()
     {
-    Play(SfxId.StationeryRotate);
+        Play(SfxId.StationeryRotate);
+    }
+    public void PlayStartGame()
+    {
+        Play(SfxId.GameStart);
     }
         public void Play(SfxId id, float volumeScale = 1f)
         {
