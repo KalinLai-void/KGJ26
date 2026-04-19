@@ -25,6 +25,11 @@ namespace KalinKonta.Stationery
             get => leftCost; set => leftCost = value;
         }
 
+        public int TotalValidCost
+        {
+            get => totalValidCost; set => totalValidCost = value;
+        }
+
         [Header("Audio")]
         [SerializeField] private AudioLibrary _audioLibrary;
 
@@ -69,7 +74,7 @@ namespace KalinKonta.Stationery
             GenerateStationery();
         }
 
-        private void Init()
+        public void Init()
         {
             leftCost = totalValidCost;
             UIManager.Instance.UpdateCostText(leftCost, 1);
