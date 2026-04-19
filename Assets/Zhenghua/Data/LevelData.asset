@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ScriptableObjects.LevelData
   levelDataItems:
   - startTime: 3
-    shootCount: 6
+    shootCount: 3
     everyDelay: 0.5
     startAngle: 30
     endAngle: 50
-  - startTime: 8
+  - startTime: 5
     shootCount: 3
     everyDelay: 0.1
     startAngle: 10
     endAngle: 50
-  - startTime: 10
-    shootCount: 6
+  - startTime: 5.8
+    shootCount: 2
     everyDelay: 0.2
     startAngle: 70
     endAngle: 110

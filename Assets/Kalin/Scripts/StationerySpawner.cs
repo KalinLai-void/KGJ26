@@ -163,7 +163,7 @@ namespace KalinKonta.Stationery
 
         public void PlayCollisionSfx()
         {
-            _audioLibrary?.PlaySfx(SfxId.Collision);
+            _audioLibrary?.PlaySfx(SfxId.Collision, 0.3f);
         }
     }
 }

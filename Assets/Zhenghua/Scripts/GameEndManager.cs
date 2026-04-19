@@ -29,7 +29,7 @@ namespace ZhengHua
             _winPanel.SetActive(isWin);
             _losePanel.SetActive(!isWin);
             
-            _audioLibrary.PlaySfx(isWin ? SfxId.GameStart : SfxId.GameFail);
+            _audioLibrary.PlaySfx(isWin ? SfxId.GameWin : SfxId.GameFail);
             
             ShowPanel();
         }

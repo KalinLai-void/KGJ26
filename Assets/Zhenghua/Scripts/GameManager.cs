@@ -1,4 +1,5 @@
 using System;
+using Nori;
 using UnityEngine;
 using UnityEngine.Events;
 using ZhengHua.Common;
@@ -38,12 +39,17 @@ namespace ZhengHua
         private int _levelIndex = 0;
         public static LevelData CurrentLevel => Instance.gameLevel[Instance._levelIndex];
 
+        [SerializeField] private AudioClip bgm;
+        [SerializeField] private AudioLibrary _audioLibrary;
+
         private void Start()
         {
             stage1Timer = stage1TotalTime;
             Invoke(nameof(EnterStage1), 0.1f);
             
             onStage2FinishEvent.AddListener(Stage2End);
+            
+            AudioManager.PlayMusic(bgm);
         }              
 
         private void Update()
@@ -64,6 +70,7 @@ namespace ZhengHua
 
         private void EnterStage1()
         {
+            _audioLibrary.PlaySfx(SfxId.GameStart);
             currentStage = State.OnStage1Start;
             stage1Timer = stage1TotalTime;
             isPerformed = false;

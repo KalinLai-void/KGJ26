@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.MenuManager
   GameSceneName: GameScene
+  bgm: {fileID: 8300000, guid: e7b8d3fc63dafba49b618ac7ab3f3e98, type: 3}
 --- !u!1001 &4546727532040323869
 PrefabInstance:
   m_ObjectHideFlags: 0
