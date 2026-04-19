@@ -23,5 +23,9 @@ namespace Nori
         StationeryRotate = 8,
         /// <summary>遊戲勝利音效.ogg</summary>
         GameWin = 9,
+        Rubychan = 10,
+        RubychanHai = 11,
+        LookingMyEyes = 12,
+        Nenene = 13,
     }
 }

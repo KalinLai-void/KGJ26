@@ -1,4 +1,5 @@
 ﻿using KalinKonta;
+using Nori;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -18,6 +19,9 @@ public class StoryTextScroller : MonoBehaviour
     [Header("Idel Settings")]
     [SerializeField] private float idleThreshold = 5f;
     private float idleTimer = 0f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioLibrary audioLibrary;
 
     private bool isScrolling = false;
     private bool isFinished = false;
@@ -41,7 +45,7 @@ public class StoryTextScroller : MonoBehaviour
 
             if (idleTimer >= idleThreshold && isFinished)
             {
-                Debug.Log($"Looking my eyes!");
+                audioLibrary?.PlaySfx(SfxId.LookingMyEyes);
             }
         }
 
@@ -113,5 +117,20 @@ public class StoryTextScroller : MonoBehaviour
         }
 
         count++;
+    }
+
+    public void PlayRubychanSfx()
+    {
+        audioLibrary?.PlaySfx(SfxId.Rubychan);
+    }
+
+    public void PlayRubychanHaiSfx()
+    {
+        audioLibrary?.PlaySfx(SfxId.RubychanHai);
+    }
+
+    public void PlayNeNeNeSfx()
+    {
+        audioLibrary?.PlaySfx(SfxId.Nenene);
     }
 }
