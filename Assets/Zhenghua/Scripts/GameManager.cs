@@ -20,6 +20,10 @@ namespace ZhengHua
         [SerializeField] private UnityEvent<bool> onStage2FinishEvent = new();
         public static UnityEvent OnStage2Start => Instance?.onStage2StartEvent;
         public static UnityEvent<bool> OnStage2Finish => Instance?.onStage2FinishEvent;
+        
+        [SerializeField] private UnityEvent onClickedPoopEvent = new();
+        public static UnityEvent OnClickedPoop => Instance?.onClickedPoopEvent;
+        
         private bool _isWin = false;
 
         public static State currentStage;

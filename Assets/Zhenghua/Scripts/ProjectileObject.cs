@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ZhengHua
 {
-    public abstract class ProjectileObject : MonoBehaviour
+    
+    public abstract class ProjectileObject : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] protected float _maxSpeed = 10f;
         [SerializeField] protected Rigidbody _rigidbody;
+        [SerializeField] protected bool _flyingUseGravity = false;
         
         public Rigidbody Rigidbody => _rigidbody;
 
@@ -22,12 +25,13 @@ namespace ZhengHua
 
         protected virtual void OnEnable()
         {
-            _rigidbody.useGravity = false;
+            if(!_flyingUseGravity)
+                _rigidbody.useGravity = false;
         }
 
         protected void OnCollisionEnter(Collision other)
         {
-            if (_rigidbody.useGravity == false)
+            if (!_flyingUseGravity && _rigidbody.useGravity == false)
                 _rigidbody.useGravity = true;
         }
 
@@ -41,6 +45,15 @@ namespace ZhengHua
             
             if (_rigidbody.useGravity == false)
                 _rigidbody.useGravity = true;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                GameManager.OnClickedPoop?.Invoke();
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }

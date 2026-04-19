@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1350420814636077985}
   - component: {fileID: 5843629203207695340}
   - component: {fileID: 6290956135674320469}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectileObject_00_Base
   m_TagString: Poop
   m_Icon: {fileID: 0}
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ProjectileObject_Poop
   _maxSpeed: 6
   _rigidbody: {fileID: 1436152194010617642}
+  _flyingUseGravity: 1
   liveTime: 3
 --- !u!33 &1350420814636077985
 MeshFilter:
@@ -142,7 +143,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6953661862311394701}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a96779b80a5ce8a439de746e5cd48440, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
