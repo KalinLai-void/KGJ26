@@ -38,6 +38,7 @@ namespace KalinKonta.Stationery
         private void OnDestroy()
         {
             GameManager.OnStage2Finish?.RemoveAllListeners();
+            if (Instance == this) Instance = null;
         }
 
         private void Awake()

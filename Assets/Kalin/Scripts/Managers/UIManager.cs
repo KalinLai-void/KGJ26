@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,6 +81,14 @@ namespace KalinKonta
             int secs = (int)GameManager.stage1Time % 60;
 
             timeText.text = mins.ToString("00") + ":" + secs.ToString("00");
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
         }
     }
 }

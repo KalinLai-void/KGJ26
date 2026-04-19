@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace KalinKonta
@@ -22,6 +23,11 @@ namespace KalinKonta
         private void Awake()
         {
             if (Instance == null) Instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
         }
 
         public void ResetCost()

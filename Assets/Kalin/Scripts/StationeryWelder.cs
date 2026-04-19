@@ -26,6 +26,13 @@ namespace KalinKonta.Stationery
         private void EnterStage1()
         {
             isWeldingPerformed = false;
+            
+            Rigidbody[] allItems = FindObjectsByType<Rigidbody>(FindObjectsSortMode.None);
+            
+            foreach (var itemA in allItems)
+            {
+                itemA.isKinematic = true;
+            }
         }
 
         public void ExecuteWeld()
@@ -62,7 +69,10 @@ namespace KalinKonta.Stationery
                     Rigidbody rootRb = groupRoot.AddComponent<Rigidbody>();
                     rootRb.linearDamping = 2f;
                     rootRb.angularDamping = 2f;
-                    rootRb.constraints = itemA.GetComponent<Rigidbody>().constraints;
+                    if(itemA.TryGetComponent<Rigidbody>(out var itemARb))
+                    {
+                        rootRb.constraints = itemARb.constraints;
+                    }
 
                     neighbors.Add(itemA.gameObject);
 
@@ -91,7 +101,10 @@ namespace KalinKonta.Stationery
                     }
                     else
                     {
-                        rootRb.constraints = itemA.GetComponent<Rigidbody>().constraints;
+                        if (itemA.TryGetComponent<Rigidbody>(out var itemARbII))
+                        {
+                            rootRb.constraints = itemARbII.constraints;
+                        }
                     }
 
                     rootRb.ResetCenterOfMass();
