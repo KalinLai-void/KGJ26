@@ -129,10 +129,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
@@ -140,7 +144,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2117867290}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 628127149}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
@@ -148,11 +160,23 @@ PrefabInstance:
       value: GameStart
       objectReference: {fileID: 0}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ZhengHua.MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Nori.UiSfx, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3096829497454448942, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
@@ -246,8 +270,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8312007200047945408, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 628127149}
   m_SourcePrefab: {fileID: 100100000, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+--- !u!1 &628127148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8312007200047945408, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+  m_PrefabInstance: {fileID: 628127147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &628127149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628127148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4623f4bed36c645af64bbf71c8c3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Nori.UiSfx
+  _audioLibrary: {fileID: 11400000, guid: 45970c0ffc5205a44bcf09d7bd7f37e5, type: 2}
 --- !u!1 &703352080
 GameObject:
   m_ObjectHideFlags: 0

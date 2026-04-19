@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73b8cfc4e2d4f7a9b1c0d2e3f4a5b6c, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::Nori.AudioLibrary
+  _entries:
+  - id: 0
+    clip: {fileID: 8300000, guid: 249ade3c3264fdd42b3d2e9ef9b65460, type: 3}
+  - id: 1
+    clip: {fileID: 8300000, guid: a625c8287341c2449a1a61858e76afa3, type: 3}
+  - id: 2
+    clip: {fileID: 8300000, guid: a1f5eeca187c62c4fb1fdf33f5da5f6e, type: 3}
+  - id: 3
+    clip: {fileID: 8300000, guid: 97cd018fb8f77c445aa9b0fb112a39bb, type: 3}
+  - id: 4
+    clip: {fileID: 8300000, guid: 7904b6cb156f9a440bddbfa4792e2094, type: 3}
+  - id: 5
+    clip: {fileID: 8300000, guid: e03bb6cde2544084cbcecc83a0e07d35, type: 3}
+  - id: 6
+    clip: {fileID: 8300000, guid: 05ec6c5157fd65347a1946245b536b94, type: 3}
