@@ -19,7 +19,7 @@ namespace ZhengHua
             _rigidbody.isKinematic = true;
             
             GameManager.OnStage2Start?.AddListener(OnGameStart);
-            GameManager.OnStage2Finish?.AddListener(OnGameEnd);
+            GameManager.OnStage2Finish?.AddListener(OnStageEnd);
 
             _nowHp = maxHp;
             for (int i = 0; i < hpImages.Length; i++)
@@ -36,7 +36,7 @@ namespace ZhengHua
             hpContainer.SetActive(true);
         }
         
-        private void OnGameEnd(bool isWin)
+        private void OnStageEnd()
         {
             _rigidbody.isKinematic = true;
             
@@ -46,7 +46,7 @@ namespace ZhengHua
         private void LoseAction()
         {
             _rigidbody.isKinematic = true;
-            GameManager.OnStage2Finish?.Invoke(false);
+            GameManager.OnGameEnd?.Invoke(false);
         }
 
         private void OnTriggerEnter(Collider other)
