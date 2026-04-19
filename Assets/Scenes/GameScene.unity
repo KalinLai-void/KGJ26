@@ -880,6 +880,9 @@ MonoBehaviour:
   onStage2FinishEvent:
     m_PersistentCalls:
       m_Calls: []
+  onClickedPoopEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stage1TotalTime: 180
 --- !u!4 &501893110
 Transform:
@@ -1615,7 +1618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.PhysicsRaycaster
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
   m_MaxRayIntersections: 0
 --- !u!114 &773138951
 MonoBehaviour:
