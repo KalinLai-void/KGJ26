@@ -17,6 +17,8 @@ namespace KalinKonta.Stationery
         [Header("Draggable Settings")]
         [SerializeField] private GameObject pool;
         [SerializeField] private float rotationSpeed = 2f;
+        [SerializeField] private int totalValidCost = 10;
+        private int leftCost;
 
         [Header("Hover Settings")]
         [SerializeField] private Outline.Mode OutlineMode = Outline.Mode.OutlineAll;
@@ -45,6 +47,8 @@ namespace KalinKonta.Stationery
 
         void Start()
         {
+            Init();
+
             spawnArea = GetComponent<BoxCollider>();
 
             if (stationeryPrefabs != null)
@@ -55,6 +59,14 @@ namespace KalinKonta.Stationery
                 }
             }
             GenerateStationery();
+        }
+
+        private void Init()
+        {
+            leftCost = totalValidCost;
+            UIManager.Instance.UpdateCostText(leftCost);
+
+            ClearOldObjs();
         }
 
         private void ClearOldObjs()
@@ -68,6 +80,8 @@ namespace KalinKonta.Stationery
 
         public void GenerateStationery()
         {
+            if (leftCost <= 0) return;
+
             ClearOldObjs();
 
             if (stationeryPrefabs == null || stationeryPrefabs.Count == 0) return;
@@ -123,6 +137,9 @@ namespace KalinKonta.Stationery
 
         public void SelectedObj(GameObject obj)
         {
+            leftCost -= obj.GetComponent<DraggableStationery>().Cost;
+            UIManager.Instance.UpdateCostText(leftCost);
+
             spawnedItems.Remove(obj);
             obj.transform.SetParent(pool.transform); // inpendent gameobject (remove from spawner)
             ClearOldObjs();
