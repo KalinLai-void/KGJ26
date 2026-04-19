@@ -9,6 +9,7 @@ namespace KalinKonta
         public static UIManager Instance;
 
         [SerializeField] private TextMeshProUGUI timeText;
+        [SerializeField] private TextMeshProUGUI costText;
 
         private void Awake()
         {
@@ -22,9 +23,16 @@ namespace KalinKonta
             UpdateTimeText();
         }
 
+        public void UpdateCostText(int value)
+        {
+            if (!costText || value < 0) return;
+
+            costText.text = $"Left Costs:\r\n{value}";
+        }
+
         private void UpdateTimeText()
         {
-            if (timeText == null) return;
+            if (!timeText) return;
 
             int mins = (int)GameManager.stage1Time / 60;
             int secs = (int)GameManager.stage1Time % 60;

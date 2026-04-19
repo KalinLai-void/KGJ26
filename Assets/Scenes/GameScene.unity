@@ -421,6 +421,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6217455397293726326, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
+      propertyPath: totalValidCost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217455397293726326, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
       propertyPath: stationeryPrefabs.Array.size
       value: 20
       objectReference: {fileID: 0}
@@ -1418,6 +1422,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 330195788}
+    - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 225
+      objectReference: {fileID: 0}
     - target: {fileID: 2699520186264329010, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1502,6 +1518,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4187218128095648233, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: costText
+      value: 
+      objectReference: {fileID: 1412109341}
     - target: {fileID: 4876976322082971637, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -1959,7 +1979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.VipTarget
   _rigidbody: {fileID: 1089627204}
-  _touchIsLose: 0
 --- !u!64 &1089627210
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2052,6 +2071,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.53, y: 0.44, z: 0.41}
   m_Center: {x: -0.0010490417, y: 0.00025469807, z: 0.77465564}
+--- !u!114 &1412109341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5787483760022388601, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+  m_PrefabInstance: {fileID: 684644350}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1470472253
 PrefabInstance:
   m_ObjectHideFlags: 0

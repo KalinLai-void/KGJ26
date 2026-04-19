@@ -7,7 +7,7 @@ namespace KalinKonta.Stationery
     {
         [SerializeField] private float health;
         [SerializeField] private float totalHealth;
-        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private readonly int cost = 1;
 
         public float TotalHealth
         {
@@ -19,6 +19,11 @@ namespace KalinKonta.Stationery
         {
             set => health = Mathf.Clamp(value, 0, totalHealth);
             get => health;
+        }
+
+        public int Cost
+        {
+            get => cost;
         }
 
         protected virtual void Start()
