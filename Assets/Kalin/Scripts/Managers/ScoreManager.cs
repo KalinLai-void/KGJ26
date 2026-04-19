@@ -14,12 +14,14 @@ namespace KalinKonta
 
         private void OnEnable()
         {
+            GameManager.OnStage1Finish?.AddListener(ResetCost);
             GameManager.OnClickedPoop?.AddListener(ClickPoopScore);
             GameManager.OnStage1Finish?.AddListener(TurnLeftCostToScore);
         }
 
         private void OnDisable()
         {
+            GameManager.OnStage1Finish?.RemoveListener(ResetCost);
             GameManager.OnClickedPoop?.RemoveListener(ClickPoopScore);
             GameManager.OnStage1Finish?.RemoveListener(TurnLeftCostToScore);
         }
@@ -37,14 +39,20 @@ namespace KalinKonta
 
         private void TurnLeftCostToScore()
         {
-            AddScore(StationerySpawner.Instance.LeftCost);
+            AddScore(CostManager.Instance.LeftCost);
         }
 
         private void ClickPoopScore()
         {
-            StationerySpawner.Instance.TotalValidCost++;
-            StationerySpawner.Instance.Init();
+            CostManager.Instance.TotalValidCost++;
+            
             AddScore(poopScore);
+        }
+
+        private void ResetCost()
+        {
+            CostManager.Instance.ResetCost();
+            UIManager.Instance.UpdateCostText(CostManager.Instance.TotalValidCost, 2);
         }
     }
 }
