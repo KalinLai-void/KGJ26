@@ -720,7 +720,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   stage1TotalTime: 180
-  gameLevel: []
+  gameLevel:
+  - {fileID: 11400000, guid: 3bf45901eebb7fb4eaeffc2ac22b0e7c, type: 2}
+  - {fileID: 11400000, guid: c210c1e7ceb3b774d8262bb4421e21ac, type: 2}
+  - {fileID: 11400000, guid: b2d38bfcf3ff115498fa088c1e347987, type: 2}
+  bgm: {fileID: 8300000, guid: b8f3966f5db212141b85519286aa55c1, type: 3}
+  _audioLibrary: {fileID: 11400000, guid: 45970c0ffc5205a44bcf09d7bd7f37e5, type: 2}
 --- !u!4 &501893110
 Transform:
   m_ObjectHideFlags: 0
@@ -1001,6 +1006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2063,6 +2072,7 @@ MonoBehaviour:
   _force: 5
   _torqueForce: 1.2
   _radius: 3
+  _audioLibrary: {fileID: 11400000, guid: 45970c0ffc5205a44bcf09d7bd7f37e5, type: 2}
 --- !u!4 &1693629307
 Transform:
   m_ObjectHideFlags: 0
@@ -2131,10 +2141,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1899760538034003684, guid: 8c24be27b232bed439ced6e3712af33f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2450126070373847356, guid: 8c24be27b232bed439ced6e3712af33f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2214,14 +2220,6 @@ PrefabInstance:
     - target: {fileID: 2450126070373847356, guid: 8c24be27b232bed439ced6e3712af33f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2457469889174892375, guid: 8c24be27b232bed439ced6e3712af33f, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744747753024306810, guid: 8c24be27b232bed439ced6e3712af33f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3906180526145318447, guid: 8c24be27b232bed439ced6e3712af33f, type: 3}
       propertyPath: m_Name

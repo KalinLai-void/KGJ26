@@ -1,4 +1,5 @@
 using System;
+using Nori;
 using UnityEngine;
 using UnityEngine.Events;
 using ZhengHua.Common;
@@ -30,38 +31,51 @@ namespace ZhengHua
 
         public static State currentStage;
 
-        public float stage1TotalTime = 180f;
-        public static float stage1Time;
+        [SerializeField]private float stage1TotalTime = 180f;
+        private float stage1Timer = 0f;
+        public static float stage1Time => Instance.stage1Timer;
 
         [SerializeField] private LevelData[] gameLevel;
         private int _levelIndex = 0;
         public static LevelData CurrentLevel => Instance.gameLevel[Instance._levelIndex];
 
+        [SerializeField] private AudioClip bgm;
+        [SerializeField] private AudioLibrary _audioLibrary;
+
         private void Start()
         {
-            stage1Time = stage1TotalTime;
+            stage1Timer = stage1TotalTime;
             Invoke(nameof(EnterStage1), 0.1f);
             
             onStage2FinishEvent.AddListener(Stage2End);
+            
+            AudioManager.PlayMusic(bgm);
         }              
 
         private void Update()
         {
-            if (stage1Time <= 0)
+            if (currentStage == State.OnStage1Start)
             {
-                if (currentStage == State.OnStage1Start) Stage1TimeOut();
-                stage1Time = 0;
-                return;
+                if (stage1Time <= 0)
+                {
+                    if (currentStage == State.OnStage1Start) 
+                        Stage1TimeOut();
+                    stage1Timer = 0;
+                    return;
+                }
+
+                stage1Timer -= Time.deltaTime;
             }
-            stage1Time -= Time.deltaTime;
         }
 
         private void EnterStage1()
         {
+            _audioLibrary.PlaySfx(SfxId.GameStart);
             currentStage = State.OnStage1Start;
+            stage1Timer = stage1TotalTime;
+            isPerformed = false;
             print("EnterStage1");
             onStage1StartEvent?.Invoke();
-            //Invoke(nameof(Stage1TimeOut), stage1Time);
         }
 
         bool isPerformed = false; // Avoid Repeats
@@ -81,8 +95,7 @@ namespace ZhengHua
         public void SkipStage1()
         {
             print("SkipStage1");
-            //CancelInvoke(nameof(Stage1TimeOut));
-            stage1Time = 0;
+            stage1Timer = 0;
             Invoke(nameof(Stage1TimeOut), 0f);
         }
         
@@ -103,7 +116,10 @@ namespace ZhengHua
             {
                 onGameEndEvent?.Invoke(true);
             }
-            onStage1StartEvent?.Invoke();
+            else
+            {
+                EnterStage1();
+            }
         }
     }
 }

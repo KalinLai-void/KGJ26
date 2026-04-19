@@ -607,7 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e004c098ec4722b018e36dd04dcdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.MenuManager
-  GameSceneName: Story
+  GameSceneName: GameScene
+  bgm: {fileID: 8300000, guid: e7b8d3fc63dafba49b618ac7ab3f3e98, type: 3}
 --- !u!1001 &4546727532040323869
 PrefabInstance:
   m_ObjectHideFlags: 0

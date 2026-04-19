@@ -10,26 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2965f4b8174141e89bb91e992d49bec7, type: 3}
-  m_Name: LevelData 2
+  m_Name: LevelData 3
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.ScriptableObjects.LevelData
   levelDataItems:
   - startTime: 3
-    shootCount: 2
-    everyDelay: 0.3
-    startAngle: 110
-    endAngle: 150
-  - startTime: 4
-    shootCount: 2
-    everyDelay: 0.1
-    startAngle: 70
-    endAngle: 110
-  - startTime: 4.5
-    shootCount: 3
-    everyDelay: 0.1
+    shootCount: 8
+    everyDelay: 0.5
     startAngle: 30
-    endAngle: 70
-  - startTime: 5
-    shootCount: 3
+    endAngle: 150
+  - startTime: 7.5
+    shootCount: 5
     everyDelay: 0.05
     startAngle: 30
-    endAngle: 70
+    endAngle: 150
