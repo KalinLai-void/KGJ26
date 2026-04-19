@@ -172,5 +172,10 @@ namespace KalinKonta.Stationery
         {
             _audioLibrary?.PlaySfx(SfxId.StationeryRotate);
         }
+
+        public void PlayCollisionSfx()
+        {
+            _audioLibrary?.PlaySfx(SfxId.Collision);
+        }
     }
 }

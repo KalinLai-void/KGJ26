@@ -47,6 +47,10 @@ namespace KalinKonta.Stationery
             {
                 Damage(3); // TODO: Intergrating damage from where
             }
+            else
+            {
+                StationerySpawner.Instance?.PlayCollisionSfx();
+            }
         }
     }
 }
