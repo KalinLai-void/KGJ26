@@ -29,6 +29,8 @@ public class StoryTextScroller : MonoBehaviour
 
     void Start()
     {
+        PlayComeSfx();
+
         next1Button.SetActive(false);
         next2Button.SetActive(false);
         StartCoroutine(StartScrollSequence(target1Top, startDelay));
@@ -109,6 +111,7 @@ public class StoryTextScroller : MonoBehaviour
         switch (count)
         {
             case 0:
+                PlayRubychanSfx();
                 next1Button.SetActive(true);
                 break;
             case 1:
@@ -117,6 +120,11 @@ public class StoryTextScroller : MonoBehaviour
         }
 
         count++;
+    }
+
+    public void PlayComeSfx()
+    {
+        audioLibrary?.PlaySfx(SfxId.ComeAlready);
     }
 
     public void PlayRubychanSfx()

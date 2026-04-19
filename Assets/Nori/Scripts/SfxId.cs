@@ -27,5 +27,6 @@ namespace Nori
         RubychanHai = 11,
         LookingMyEyes = 12,
         Nenene = 13,
+        ComeAlready = 14,
     }
 }
