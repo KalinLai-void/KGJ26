@@ -79,7 +79,6 @@ public class StoryTextScroller : MonoBehaviour
     {
         next1Button.SetActive(false);
         next2Button.SetActive(false);
-        isFinished = false;
         StartCoroutine(StartScrollSequence(target2Top, 0));
     }
 
