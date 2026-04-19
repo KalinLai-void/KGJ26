@@ -48,6 +48,7 @@ namespace ZhengHua
         private void OnGameEnd(bool isWin)
         {
             _isGameStart = false;
+            CancelInvoke(nameof(Stage2End));
         }
 
         private void Update()
