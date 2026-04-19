@@ -184,7 +184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 9}
   m_SizeDelta: {x: 1266, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9142450228811647356
@@ -399,6 +399,7 @@ MonoBehaviour:
   _winPanel: {fileID: 6238199563393829643}
   _losePanel: {fileID: 3744747753024306810}
   MenuSceneName: Menu
+  _audioLibrary: {fileID: 11400000, guid: 45970c0ffc5205a44bcf09d7bd7f37e5, type: 2}
 --- !u!1 &4031883252664783539
 GameObject:
   m_ObjectHideFlags: 0

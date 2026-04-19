@@ -1,4 +1,5 @@
 using System;
+using Nori;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ZhengHua.Common;
@@ -10,6 +11,8 @@ namespace ZhengHua
         [SerializeField] private GameObject _winPanel;
         [SerializeField] private GameObject _losePanel;
         [SerializeField] private string MenuSceneName = "Menu";
+        [Header("Audio")]
+        [SerializeField] private AudioLibrary _audioLibrary;
         private void Start()
         {
             print("GameEndManager Start");
@@ -25,6 +28,8 @@ namespace ZhengHua
         {
             _winPanel.SetActive(isWin);
             _losePanel.SetActive(!isWin);
+            
+            _audioLibrary.PlaySfx(isWin ? SfxId.GameStart : SfxId.GameFail);
             
             ShowPanel();
         }
