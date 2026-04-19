@@ -1386,6 +1386,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 563
+      objectReference: {fileID: 0}
+    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 499
+      objectReference: {fileID: 0}
+    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1394,14 +1418,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 330195788}
-    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SkipStage1
-      objectReference: {fileID: 0}
-    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
     - target: {fileID: 2699520186264329010, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1482,6 +1498,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3071240126434213131, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876976322082971637, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876976322082971637, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83a971e2ae504554c82e5fc1f3a7d95e, type: 3}
     - target: {fileID: 8015553889676608591, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
