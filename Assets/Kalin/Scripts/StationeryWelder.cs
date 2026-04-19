@@ -26,12 +26,39 @@ namespace KalinKonta.Stationery
         private void EnterStage1()
         {
             isWeldingPerformed = false;
-            
-            Rigidbody[] allItems = FindObjectsByType<Rigidbody>(FindObjectsSortMode.None);
-            
-            foreach (var itemA in allItems)
+
+            if (StationerySpawner.Instance != null)
             {
-                itemA.isKinematic = true;
+                StationerySpawner.Instance.enabled = true;
+            }
+
+            WeldedGroupHealthProxy[] weldedGroups = FindObjectsByType<WeldedGroupHealthProxy>(FindObjectsSortMode.None);
+
+            foreach (var group in weldedGroups)
+            {
+                Transform groupTransform = group.transform;
+
+                List<Transform> children = new List<Transform>();
+                for (int i = 0; i < groupTransform.childCount; i++)
+                {
+                    children.Add(groupTransform.GetChild(i));
+                }
+
+                foreach (var child in children)
+                {
+                    RestoreStationery(child.gameObject);
+                }
+
+                Destroy(group.gameObject);
+            }
+
+            DraggableStationery[] allItems = FindObjectsByType<DraggableStationery>(FindObjectsSortMode.None);
+            foreach (var item in allItems)
+            {
+                if (item.transform.parent == null || item.transform.parent.GetComponent<WeldedGroupHealthProxy>() == null)
+                {
+                    RestoreStationery(item.gameObject);
+                }
             }
         }
 
@@ -122,6 +149,29 @@ namespace KalinKonta.Stationery
                         rb.isKinematic = CheckIsTouchingFloor(itemA.gameObject);
                     }
                 }
+            }
+        }
+
+        private void RestoreStationery(GameObject obj)
+        {
+            obj.transform.SetParent(null);
+
+            if (obj.TryGetComponent(out DraggableStationery ds))
+            {
+                ds.canDragging = true;
+                ds.state = DraggableState.Free;
+            }
+
+            if (!obj.GetComponent<Rigidbody>())
+            {
+                Rigidbody rb = obj.AddComponent<Rigidbody>();
+                rb.isKinematic = true;
+                rb.linearDamping = 2f;
+                rb.angularDamping = 2f;
+            }
+            else
+            {
+                obj.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
 
