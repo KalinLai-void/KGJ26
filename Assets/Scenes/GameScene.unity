@@ -1001,30 +1001,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 563
-      objectReference: {fileID: 0}
-    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 499
-      objectReference: {fileID: 0}
-    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 378825540207374914, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1033,17 +1009,37 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 330195788}
+    - target: {fileID: 1855259563473389577, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855259563473389577, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955130667539044484, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371098264636822909, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2699520186264329010, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Pivot.x
@@ -1125,22 +1121,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3071240126434213131, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4187218128095648233, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: costText
+      propertyPath: scoreText
       value: 
-      objectReference: {fileID: 1412109341}
-    - target: {fileID: 4876976322082971637, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_Type
-      value: 0
+      objectReference: {fileID: 684644351}
+    - target: {fileID: 6089582246560092134, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_text
+      value: 00000
       objectReference: {fileID: 0}
-    - target: {fileID: 4876976322082971637, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 83a971e2ae504554c82e5fc1f3a7d95e, type: 3}
+    - target: {fileID: 6089582246560092134, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_fontSize
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089582246560092134, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 8015553889676608591, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
@@ -1150,6 +1146,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+--- !u!114 &684644351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6089582246560092134, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+  m_PrefabInstance: {fileID: 684644350}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &696411695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1698,17 +1705,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199313779}
   m_CullTransparentMesh: 1
---- !u!114 &1412109341 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5787483760022388601, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
-  m_PrefabInstance: {fileID: 684644350}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1548661540
 PrefabInstance:
   m_ObjectHideFlags: 0
