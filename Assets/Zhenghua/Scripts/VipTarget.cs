@@ -26,13 +26,14 @@ namespace ZhengHua
             {
                 hpImages[i].color = i < _nowHp ? Color.red : Color.gray;
             }
+            
+            hpContainer.SetActive(false);
         }
 
         private void OnGameStart()
         {
             _rigidbody.isKinematic = false;
-
-            _nowHp = maxHp;
+            
             hpContainer.SetActive(true);
         }
         

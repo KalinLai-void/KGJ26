@@ -15,11 +15,17 @@ namespace KalinKonta.Stationery
         private void OnEnable()
         {
             GameManager.OnStage2Start?.AddListener(ExecuteWeld);
+            GameManager.OnStage1Start?.AddListener(EnterStage1);
         }
 
         private void OnDisable()
         {
             GameManager.OnStage2Start?.RemoveListener(ExecuteWeld);
+        }
+
+        private void EnterStage1()
+        {
+            isWeldingPerformed = false;
         }
 
         public void ExecuteWeld()
