@@ -18,7 +18,7 @@ namespace KalinKonta.Stationery
             GameManager.OnStage1Start?.AddListener(EnterStage1);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             GameManager.OnStage2Start?.RemoveListener(ExecuteWeld);
         }
@@ -49,6 +49,7 @@ namespace KalinKonta.Stationery
             foreach (var itemA in allItems)
             {
                 if (processed.Contains(itemA.gameObject)) continue;
+                itemA.GetComponent<Rigidbody>().isKinematic = false;
 
                 List<GameObject> neighbors = FindTouchingItems(itemA.gameObject, allItems);
 
