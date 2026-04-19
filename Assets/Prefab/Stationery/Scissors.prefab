@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1153876410639123193}
   - component: {fileID: 1978095274518455340}
   - component: {fileID: 1363489928460121551}
+  - component: {fileID: 690908553807675584}
   m_Layer: 7
   m_Name: Scissors
   m_TagString: Untagged
@@ -140,7 +141,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 24
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &1363489928460121551
 MonoBehaviour:
@@ -162,3 +163,24 @@ MonoBehaviour:
   rotationSpeed: 0.05
   state: 0
   canDragging: 1
+--- !u!65 &690908553807675584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356292718857141158}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30630177, y: 0.13168636, z: 0.3}
+  m_Center: {x: -0.0063677207, y: 0, z: -0.0000000011641532}
