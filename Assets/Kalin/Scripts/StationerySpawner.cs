@@ -20,6 +20,16 @@ namespace KalinKonta.Stationery
         [SerializeField] private int totalValidCost = 10;
         private int leftCost;
 
+        public int LeftCost
+        {
+            get => leftCost; set => leftCost = value;
+        }
+
+        public int TotalValidCost
+        {
+            get => totalValidCost; set => totalValidCost = value;
+        }
+
         [Header("Audio")]
         [SerializeField] private AudioLibrary _audioLibrary;
 
@@ -64,10 +74,10 @@ namespace KalinKonta.Stationery
             GenerateStationery();
         }
 
-        private void Init()
+        public void Init()
         {
             leftCost = totalValidCost;
-            UIManager.Instance.UpdateCostText(leftCost);
+            UIManager.Instance.UpdateCostText(leftCost, 1);
 
             ClearOldObjs();
         }
@@ -141,7 +151,7 @@ namespace KalinKonta.Stationery
         public void SelectedObj(GameObject obj)
         {
             leftCost -= obj.GetComponent<DraggableStationery>().Cost;
-            UIManager.Instance.UpdateCostText(leftCost);
+            UIManager.Instance.UpdateCostText(leftCost, 1);
 
             spawnedItems.Remove(obj);
             obj.transform.SetParent(pool.transform); // inpendent gameobject (remove from spawner)
