@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Nori;
 using UnityEngine;
-using UnityEngine.Events;
 using ZhengHua;
 
 namespace KalinKonta.Stationery
@@ -19,6 +19,9 @@ namespace KalinKonta.Stationery
         [SerializeField] private float rotationSpeed = 2f;
         [SerializeField] private int totalValidCost = 10;
         private int leftCost;
+
+        [Header("Audio")]
+        [SerializeField] private AudioLibrary _audioLibrary;
 
         [Header("Hover Settings")]
         [SerializeField] private Outline.Mode OutlineMode = Outline.Mode.OutlineAll;
@@ -143,6 +146,21 @@ namespace KalinKonta.Stationery
             spawnedItems.Remove(obj);
             obj.transform.SetParent(pool.transform); // inpendent gameobject (remove from spawner)
             ClearOldObjs();
+        }
+
+        public void PlayPlaceSfx()
+        {
+            _audioLibrary?.PlaySfx(SfxId.Place);
+        }
+
+        public void PlayHoverSfx()
+        {
+            _audioLibrary?.PlaySfx(SfxId.StationeryHover);
+        }
+
+        public void PlayRotateTickSfx()
+        {
+            _audioLibrary?.PlaySfx(SfxId.StationeryRotate);
         }
     }
 }

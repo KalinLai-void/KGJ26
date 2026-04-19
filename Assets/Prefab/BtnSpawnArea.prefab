@@ -92,7 +92,12 @@ MonoBehaviour:
   - {fileID: 4289460295072566348, guid: d15c9faa316dc394d82d05f79275bed6, type: 3}
   - {fileID: 3865887409402763005, guid: 72bfc06062338fb47a467be42cc13cac, type: 3}
   spawnCount: 3
+  pool: {fileID: 0}
   rotationSpeed: 5
+  _audioLibrary: {fileID: 11400000, guid: 45970c0ffc5205a44bcf09d7bd7f37e5, type: 2}
+  OutlineMode: 0
+  OutlineColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  OutlineWidth: 1
 --- !u!114 &6352759463244210722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,3 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39281d2ed86b7a14c9779eaafed590ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.StationeryWelder
+  _floorLayer:
+    serializedVersion: 2
+    m_Bits: 0

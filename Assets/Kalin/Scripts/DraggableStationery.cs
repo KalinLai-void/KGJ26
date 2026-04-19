@@ -19,6 +19,11 @@ namespace KalinKonta.Stationery
         public DraggableState state;
         public bool canDragging = true;
 
+        private const float HoverSfxCooldown = 0.2f;
+        private const float RotateSfxCooldown = 0.12f;
+        private float _lastHoverSfxTime = -999f;
+        private float _lastRotateSfxTime = -999f;
+
         private void Awake()
         {
             GetComponent<Rigidbody>().isKinematic = true;
@@ -51,6 +56,13 @@ namespace KalinKonta.Stationery
             {
                 float rotationAmount = scroll.y * rotationSpeed;
                 transform.Rotate(0, 0, rotationAmount);
+
+                float t = Time.unscaledTime;
+                if (t - _lastRotateSfxTime >= RotateSfxCooldown)
+                {
+                    _lastRotateSfxTime = t;
+                    StationerySpawner.Instance?.PlayRotateTickSfx();
+                }
             }
         }
 
@@ -59,6 +71,13 @@ namespace KalinKonta.Stationery
             if (!canDragging) return;
             if (isDragging) return;
             if (highlighter != null) highlighter.ToggleHighlight(true);
+
+            float t = Time.unscaledTime;
+            if (t - _lastHoverSfxTime >= HoverSfxCooldown)
+            {
+                _lastHoverSfxTime = t;
+                StationerySpawner.Instance?.PlayHoverSfx();
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -90,7 +109,10 @@ namespace KalinKonta.Stationery
         public void OnPointerUp(PointerEventData eventData)
         {
             if (!canDragging) return;
+            bool wasDragging = isDragging;
             isDragging = false;
+            if (wasDragging)
+                StationerySpawner.Instance?.PlayPlaceSfx();
             if (state == DraggableState.WaitForSelected) 
                 StationerySpawner.Instance.GenerateStationery(); // new round
             state = DraggableState.Free;
