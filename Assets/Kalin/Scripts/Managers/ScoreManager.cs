@@ -45,7 +45,7 @@ namespace KalinKonta
         private void ClickPoopScore()
         {
             CostManager.Instance.TotalValidCost++;
-            
+            ResetCost();
             AddScore(poopScore);
         }
 
