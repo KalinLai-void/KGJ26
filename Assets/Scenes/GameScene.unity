@@ -1122,6 +1122,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4187218128095648233, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: skipBtn
+      value: 
+      objectReference: {fileID: 1306927486}
+    - target: {fileID: 4187218128095648233, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 684644351}
@@ -1705,6 +1709,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199313779}
   m_CullTransparentMesh: 1
+--- !u!114 &1306927486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+  m_PrefabInstance: {fileID: 684644350}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &1548661540
 PrefabInstance:
   m_ObjectHideFlags: 0

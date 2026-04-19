@@ -14,14 +14,14 @@ namespace KalinKonta
 
         private void OnEnable()
         {
-            GameManager.OnStage1Finish?.AddListener(ResetCost);
+            GameManager.OnStage2Start?.AddListener(ResetCost);
             GameManager.OnClickedPoop?.AddListener(ClickPoopScore);
             GameManager.OnStage1Finish?.AddListener(TurnLeftCostToScore);
         }
 
         private void OnDisable()
         {
-            GameManager.OnStage1Finish?.RemoveListener(ResetCost);
+            GameManager.OnStage2Start?.RemoveListener(ResetCost);
             GameManager.OnClickedPoop?.RemoveListener(ClickPoopScore);
             GameManager.OnStage1Finish?.RemoveListener(TurnLeftCostToScore);
         }
