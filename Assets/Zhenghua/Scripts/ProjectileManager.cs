@@ -23,7 +23,7 @@ namespace ZhengHua
         [SerializeField] private float _force;
         [SerializeField] private float _torqueForce;
         [SerializeField] private float _radius;
-        [SerializeField] private LevelData _levelData;
+        private LevelData _levelData;
         private int _levelIndex = 0;
         private float _gameTime = 0f;
         private bool _isGameStart = false;
@@ -33,7 +33,7 @@ namespace ZhengHua
         private void Start()
         {
             GameManager.OnStage2Start?.AddListener(OnGameStart);
-            GameManager.OnStage2Finish?.AddListener(OnGameEnd);
+            GameManager.OnStage2Finish?.AddListener(OnStageEnd);
         }
 
         private void OnGameStart()
@@ -43,9 +43,10 @@ namespace ZhengHua
             _isGameStart = true;
             _inLevel = false;
             _isLevelEnd = false;
+            _levelData = GameManager.CurrentLevel;
         }
 
-        private void OnGameEnd(bool isWin)
+        private void OnStageEnd()
         {
             _isGameStart = false;
             CancelInvoke(nameof(Stage2End));
@@ -95,7 +96,7 @@ namespace ZhengHua
 
         private void Stage2End()
         {
-            GameManager.OnStage2Finish?.Invoke(true);
+            GameManager.OnStage2Finish?.Invoke();
         }
 
         private Vector3 GetSemiCirclePosition(float progress, float radius)

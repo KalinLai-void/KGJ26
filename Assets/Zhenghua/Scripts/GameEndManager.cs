@@ -13,17 +13,16 @@ namespace ZhengHua
         private void Start()
         {
             print("GameEndManager Start");
-            GameManager.OnStage2Finish?.AddListener(OnGameEnd);
+            GameManager.OnGameEnd?.AddListener(OnGameEnd);
         }
         
         private void OnDestroy()
         {
-            GameManager.OnStage2Finish?.RemoveListener(OnGameEnd);
+            GameManager.OnGameEnd?.RemoveListener(OnGameEnd);
         }
 
         private void OnGameEnd(bool isWin)
         {
-            print("OnGameEnd " + isWin);
             _winPanel.SetActive(isWin);
             _losePanel.SetActive(!isWin);
             
