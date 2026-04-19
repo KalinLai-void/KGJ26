@@ -757,7 +757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdca3fcf9e7762458a6e3c3eadfd507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.ScoreManager
-  poopScore: 100
+  poopScore: 10
+  leftCostScorePerOne: 50
 --- !u!114 &501893112
 MonoBehaviour:
   m_ObjectHideFlags: 0

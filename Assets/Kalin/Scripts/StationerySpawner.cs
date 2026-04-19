@@ -44,7 +44,7 @@ namespace KalinKonta.Stationery
         private void Awake()
         {
             if (Instance == null) Instance = this;
-            GameManager.OnStage1Start?.AddListener(GenerateStationery);
+            //GameManager.OnStage1Start?.AddListener(GenerateStationery);
         }
 
         void Start()

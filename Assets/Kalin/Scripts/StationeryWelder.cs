@@ -67,6 +67,8 @@ namespace KalinKonta.Stationery
                     RestoreStationery(item.gameObject);
                 }
             }
+
+            StationerySpawner.Instance.GenerateStationery(); // new round
         }
 
         private void ExecuteWeld()
@@ -91,7 +93,7 @@ namespace KalinKonta.Stationery
 
                 if (neighbors.Count > 0)
                 {
-                    ScoreManager.Instance.AddScore(10);
+                    ScoreManager.Instance.AddScore(1);
 
                     // Creating a new root (scale must Vector3.one)
                     GameObject groupRoot = new GameObject($"WeldedGroup_{itemA.name}");

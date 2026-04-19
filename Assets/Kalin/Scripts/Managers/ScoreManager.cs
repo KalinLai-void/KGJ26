@@ -9,6 +9,7 @@ namespace KalinKonta
         public static ScoreManager Instance;
 
         [SerializeField] private int poopScore = 5;
+        [SerializeField] private int leftCostScorePerOne = 50;
 
         private int score = 0;
 
@@ -39,14 +40,14 @@ namespace KalinKonta
 
         private void TurnLeftCostToScore()
         {
-            AddScore(CostManager.Instance.LeftCost * 500);
+            AddScore(CostManager.Instance.LeftCost * leftCostScorePerOne);
         }
 
         private void ClickPoopScore()
         {
             CostManager.Instance.TotalValidCost++;
             ResetCost();
-            AddScore(poopScore * 200);
+            AddScore(poopScore);
         }
 
         private void ResetCost()
