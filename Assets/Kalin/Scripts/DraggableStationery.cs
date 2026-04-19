@@ -108,14 +108,17 @@ namespace KalinKonta.Stationery
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            Debug.Log($"{canDragging} {isDragging}");
             if (!canDragging) return;
             bool wasDragging = isDragging;
             isDragging = false;
             if (wasDragging)
+            { 
                 StationerySpawner.Instance?.PlayPlaceSfx();
-            if (state == DraggableState.WaitForSelected) 
-                StationerySpawner.Instance.GenerateStationery(); // new round
-            state = DraggableState.Free;
+                if (state == DraggableState.WaitForSelected) 
+                    StationerySpawner.Instance.GenerateStationery(); // new round
+                state = DraggableState.Free;
+            }
         }
     }
 }

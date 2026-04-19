@@ -155,13 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b218a66bdeabb41499d921787e0a62cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.DraggableStationery
-  health: 0
+  health: 10
   totalHealth: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
   rotationSpeed: 0.05
-  state: 0
+  state: 1
   canDragging: 1
 --- !u!65 &6487320631561081145
 BoxCollider:

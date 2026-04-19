@@ -137,11 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.DraggableStationery
   health: 10
   totalHealth: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
   rotationSpeed: 0.05
-  state: 0
+  state: 1
   canDragging: 1
 --- !u!65 &5775857194096723290
 BoxCollider:

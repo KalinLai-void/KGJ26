@@ -27,6 +27,13 @@ namespace KalinKonta.Stationery
         {
             isWeldingPerformed = false;
 
+            //Rigidbody[] allItems = FindObjectsByType<Rigidbody>(FindObjectsSortMode.None);
+
+            //foreach (var itemA in allItems)
+            //{
+            //    itemA.isKinematic = true;
+            //}
+
             if (StationerySpawner.Instance != null)
             {
                 StationerySpawner.Instance.enabled = true;
@@ -62,7 +69,7 @@ namespace KalinKonta.Stationery
             }
         }
 
-        public void ExecuteWeld()
+        private void ExecuteWeld()
         {
             if (isWeldingPerformed) return;
             isWeldingPerformed = true;
@@ -84,6 +91,8 @@ namespace KalinKonta.Stationery
 
                 if (neighbors.Count > 0)
                 {
+                    ScoreManager.Instance.AddScore(10);
+
                     // Creating a new root (scale must Vector3.one)
                     GameObject groupRoot = new GameObject($"WeldedGroup_{itemA.name}");
                     groupRoot.transform.position = itemA.transform.position;

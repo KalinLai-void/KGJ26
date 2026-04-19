@@ -39,14 +39,14 @@ namespace KalinKonta
 
         private void TurnLeftCostToScore()
         {
-            AddScore(CostManager.Instance.LeftCost);
+            AddScore(CostManager.Instance.LeftCost * 500);
         }
 
         private void ClickPoopScore()
         {
             CostManager.Instance.TotalValidCost++;
             ResetCost();
-            AddScore(poopScore);
+            AddScore(poopScore * 200);
         }
 
         private void ResetCost()

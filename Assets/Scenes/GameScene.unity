@@ -336,6 +336,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3865887409402763005, guid: 72bfc06062338fb47a467be42cc13cac, type: 3}
     - target: {fileID: 6352759463244210722, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352759463244210722, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
       propertyPath: _floorLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
@@ -753,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdca3fcf9e7762458a6e3c3eadfd507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.ScoreManager
-  poopScore: 5
+  poopScore: 100
 --- !u!114 &501893112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,16 +1012,64 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 501893109}
+      objectReference: {fileID: 933551243}
     - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 501893109}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
       objectReference: {fileID: 330195788}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SkipStage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KalinKonta.Stationery.StationeryWelder, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ZhengHua.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: KalinKonta.Stationery.StationerySpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848737580102596926, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1855259563473389577, guid: 95cfc520d33cbbf46a32cf968585abd9, type: 3}
       propertyPath: m_fontSize
       value: 48
@@ -1461,6 +1513,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929961614}
   m_CullTransparentMesh: 1
+--- !u!114 &933551243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6352759463244210722, guid: 22bf90bcc5ba54f44a3914d5cb6f529f, type: 3}
+  m_PrefabInstance: {fileID: 82011589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39281d2ed86b7a14c9779eaafed590ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KalinKonta.Stationery.StationeryWelder
 --- !u!1 &1089627203
 GameObject:
   m_ObjectHideFlags: 0
