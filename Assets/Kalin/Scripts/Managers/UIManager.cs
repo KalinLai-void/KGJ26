@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using ZhengHua;
 
 namespace KalinKonta
@@ -8,8 +9,22 @@ namespace KalinKonta
     {
         public static UIManager Instance;
 
+        [SerializeField] private Button skipBtn;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI costText;
+        [SerializeField] private TextMeshProUGUI scoreText;
+
+        private void OnEnable()
+        {
+            GameManager.OnStage1Start?.AddListener(ShowSkipBtn);
+            GameManager.OnStage2Start?.AddListener(HideSkipBtn);
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnStage1Start?.RemoveListener(ShowSkipBtn);
+            GameManager.OnStage2Start?.RemoveListener(HideSkipBtn);
+        }
 
         private void Awake()
         {
@@ -21,6 +36,23 @@ namespace KalinKonta
             if (GameManager.currentStage != GameManager.State.OnStage1Start) return;
 
             UpdateTimeText();
+        }
+
+        private void HideSkipBtn()
+        {
+            skipBtn.gameObject.SetActive(false);
+        }
+
+        private void ShowSkipBtn()
+        {
+            skipBtn.gameObject.SetActive(true);
+        }
+
+        public void UpdateScoreText(int value)
+        {
+            if (!scoreText) return;
+
+            scoreText.text = value.ToString("00000");
         }
 
         public void UpdateCostText(int value)

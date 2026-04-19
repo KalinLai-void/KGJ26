@@ -20,6 +20,11 @@ namespace KalinKonta.Stationery
         [SerializeField] private int totalValidCost = 10;
         private int leftCost;
 
+        public int LeftCost
+        {
+            get => leftCost; set => leftCost = value;
+        }
+
         [Header("Hover Settings")]
         [SerializeField] private Outline.Mode OutlineMode = Outline.Mode.OutlineAll;
         [SerializeField] private Color OutlineColor = Color.yellow;
