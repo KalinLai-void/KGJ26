@@ -21,5 +21,7 @@ namespace Nori
         StationeryHover = 7,
         /// <summary>文具滾輪旋轉 tick（可先與 Button 同 clip）</summary>
         StationeryRotate = 8,
+        /// <summary>遊戲勝利音效.ogg</summary>
+        GameWin = 9,
     }
 }
