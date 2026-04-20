@@ -116,8 +116,8 @@ namespace KalinKonta.Stationery
                     var outline = go.AddComponent<Outline>();
                     outline.enabled = false;
 
-                    StationeryHighlight highlighter = go.GetComponent<StationeryHighlight>();
-                    if (highlighter == null) highlighter = go.AddComponent<StationeryHighlight>();
+                    Highlighter highlighter = go.GetComponent<Highlighter>();
+                    if (highlighter == null) highlighter = go.AddComponent<Highlighter>();
 
                     highlighter.OutlineMode = OutlineMode;
                     highlighter.OutlineColor = OutlineColor;

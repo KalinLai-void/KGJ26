@@ -128,9 +128,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2117867290}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2117867291}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: CallGyroPermission
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: WebGLBridge, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3096829497454448942, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -573,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117867289}
   - component: {fileID: 2117867290}
+  - component: {fileID: 2117867291}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -609,6 +638,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.MenuManager
   GameSceneName: Story
   bgm: {fileID: 8300000, guid: e7b8d3fc63dafba49b618ac7ab3f3e98, type: 3}
+--- !u!114 &2117867291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117867288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e956c2e837d4284782a3769fdc841d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLBridge
 --- !u!1001 &4546727532040323869
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 using KalinKonta;
 using UnityEngine;
 
-namespace KalinKonta.Stationery
+namespace KalinKonta
 {
-    public class StationeryHighlight : MonoBehaviour
+    public class Highlighter : MonoBehaviour
     {
         public Outline.Mode OutlineMode;
         public Color OutlineColor;
@@ -17,6 +17,7 @@ namespace KalinKonta.Stationery
 
             foreach (var outline in outlines)
             {
+                Debug.Log(outline);
                 outline.enabled = isOn;
 
                 if (isOn)

@@ -14,7 +14,7 @@ namespace KalinKonta.Stationery
         [HideInInspector] public float rotationSpeed = 0.05f;
         private bool isDragging = false;
 
-        private StationeryHighlight highlighter;
+        private Highlighter highlighter;
 
         public DraggableState state;
         public bool canDragging = true;
@@ -34,8 +34,8 @@ namespace KalinKonta.Stationery
         {
             base.Start();
 
-            highlighter = GetComponent<StationeryHighlight>();
-            if (highlighter == null) highlighter = gameObject.AddComponent<StationeryHighlight>();
+            highlighter = GetComponent<Highlighter>();
+            if (highlighter == null) highlighter = gameObject.AddComponent<Highlighter>();
         }
 
         private void Update()
@@ -50,11 +50,13 @@ namespace KalinKonta.Stationery
         {
             if (!canDragging) return;
 
-            Vector2 scroll = InputManager.Instance.ScrollValue;
+            Vector3 rotationInput = InputManager.Instance.GetRotationInput();
 
-            if (Mathf.Abs(scroll.y) > 0.01f)
+            float finalRotation = rotationInput.z;
+
+            if (Mathf.Abs(rotationInput.z) > 0.01f)
             {
-                float rotationAmount = scroll.y * rotationSpeed;
+                float rotationAmount = rotationInput.z * rotationSpeed;
                 transform.Rotate(0, 0, rotationAmount);
 
                 float t = Time.unscaledTime;

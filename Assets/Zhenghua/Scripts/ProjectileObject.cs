@@ -1,17 +1,33 @@
+using Nori;
+using KalinKonta;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using KalinKonta.Stationery;
 
 namespace ZhengHua
 {
     
-    public abstract class ProjectileObject : MonoBehaviour, IPointerClickHandler
+    public abstract class ProjectileObject : MonoBehaviour, 
+        IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] protected float _maxSpeed = 10f;
         [SerializeField] protected Rigidbody _rigidbody;
         [SerializeField] protected bool _flyingUseGravity = false;
-        
+
+        [SerializeField] private AudioLibrary audioLibrary;
+
+        private Highlighter highlighter;
+
         public Rigidbody Rigidbody => _rigidbody;
+
+        private void Awake()
+        {
+            var outline = gameObject.AddComponent<Outline>();
+            outline.enabled = false;
+            highlighter = GetComponent<Highlighter>();
+            if (highlighter == null) highlighter = gameObject.AddComponent<Highlighter>();
+        }
 
         protected virtual void FixedUpdate()
         {
@@ -53,7 +69,18 @@ namespace ZhengHua
             {
                 GameManager.OnClickedPoop?.Invoke();
                 this.gameObject.SetActive(false);
+                audioLibrary?.PlaySfx(SfxId.ClickPoop);
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (highlighter != null) highlighter.ToggleHighlight(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (highlighter != null) highlighter.ToggleHighlight(false);
         }
     }
 }

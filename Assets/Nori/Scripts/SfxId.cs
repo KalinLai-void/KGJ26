@@ -28,5 +28,6 @@ namespace Nori
         LookingMyEyes = 12,
         Nenene = 13,
         ComeAlready = 14,
+        ClickPoop = 15,
     }
 }
