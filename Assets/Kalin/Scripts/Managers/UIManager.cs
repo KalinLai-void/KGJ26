@@ -19,12 +19,14 @@ namespace KalinKonta
         {
             GameManager.OnStage1Start?.AddListener(ShowWhenSkipBtnClick);
             GameManager.OnStage2Start?.AddListener(HideWhenSkipBtnClick);
+            GameManager.OnGameEnd?.AddListener(HideWhenGameEnd);
         }
 
         private void OnDisable()
         {
             GameManager.OnStage1Start?.RemoveListener(ShowWhenSkipBtnClick);
             GameManager.OnStage2Start?.RemoveListener(HideWhenSkipBtnClick);
+            GameManager.OnGameEnd?.RemoveListener(HideWhenGameEnd);
         }
 
         private void Awake()
@@ -37,6 +39,12 @@ namespace KalinKonta
             if (GameManager.currentStage != GameManager.State.OnStage1Start) return;
 
             UpdateTimeText();
+        }
+
+        private void HideWhenGameEnd(bool isWin)
+        {
+            costText.gameObject.SetActive(false);
+            timeText.gameObject.SetActive(false);
         }
 
         private void HideWhenSkipBtnClick()

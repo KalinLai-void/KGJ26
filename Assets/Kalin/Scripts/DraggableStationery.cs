@@ -1,5 +1,4 @@
 ﻿using KalinKonta;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -56,7 +55,8 @@ namespace KalinKonta.Stationery
 
             if (Mathf.Abs(rotationInput.z) > 0.01f)
             {
-                float rotationAmount = rotationInput.z * rotationSpeed;
+                float multiplier = Application.isMobilePlatform ? 0.5f : 1.0f;
+                float rotationAmount = rotationInput.z * rotationSpeed * multiplier;
                 transform.Rotate(0, 0, rotationAmount);
 
                 float t = Time.unscaledTime;

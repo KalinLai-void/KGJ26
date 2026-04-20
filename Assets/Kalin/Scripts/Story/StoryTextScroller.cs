@@ -48,6 +48,7 @@ public class StoryTextScroller : MonoBehaviour
             if (idleTimer >= idleThreshold && isFinished)
             {
                 audioLibrary?.PlaySfx(SfxId.LookingMyEyes);
+                idleTimer = 0;
             }
         }
 

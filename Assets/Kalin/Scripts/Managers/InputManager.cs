@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace KalinKonta
 {
@@ -8,8 +10,6 @@ namespace KalinKonta
         public static InputManager Instance { get; private set; }
 
         private PlayerInputActions controls;
-
-        private Vector3 GyroValue => controls.Player.GyroRotation.ReadValue<Vector3>();
 
         private Vector2 ScrollValue => controls.Player.Rotation.ReadValue<Vector2>();
 
@@ -27,10 +27,7 @@ namespace KalinKonta
 
                 if (Application.isMobilePlatform) // Mobile
                 {
-                    if (UnityEngine.InputSystem.Gyroscope.current != null)
-                    {
-                        InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
-                    }
+                    EnhancedTouchSupport.Enable();
                 }
             }
             else
@@ -46,7 +43,12 @@ namespace KalinKonta
 #elif UNITY_WEBGL
                 if (Application.isMobilePlatform)
                 {
-                    return GyroValue; 
+                    if (Touch.activeTouches.Count >= 2)
+                    {
+                        float secondaryTouchDeltaX = Touch.activeTouches[1].delta.x;
+                        return new Vector3(0, 0, -secondaryTouchDeltaX);
+                    }
+                    return Vector3.zero;
                 }
                 else
                 {

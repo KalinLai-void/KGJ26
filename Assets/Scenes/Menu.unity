@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 2117867291}
+      objectReference: {fileID: 0}
     - target: {fileID: 53924316400951244, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -242,6 +242,54 @@ PrefabInstance:
     - target: {fileID: 4034754871427142261, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
       propertyPath: m_Name
       value: MainUICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373626073369586156, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373626073369586156, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373626073369586156, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373626073369586156, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373626073369586156, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -231
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373626073369586156, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363196710721653907, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363196710721653907, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363196710721653907, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363196710721653907, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363196710721653907, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 525
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363196710721653907, guid: fceb1e5860fc3c24db0b3cced8f7f930, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -314
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -601,7 +649,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2117867289}
   - component: {fileID: 2117867290}
-  - component: {fileID: 2117867291}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -638,18 +685,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZhengHua.MenuManager
   GameSceneName: Story
   bgm: {fileID: 8300000, guid: e7b8d3fc63dafba49b618ac7ab3f3e98, type: 3}
---- !u!114 &2117867291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117867288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e956c2e837d4284782a3769fdc841d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WebGLBridge
 --- !u!1001 &4546727532040323869
 PrefabInstance:
   m_ObjectHideFlags: 0

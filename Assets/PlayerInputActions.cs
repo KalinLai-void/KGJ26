@@ -118,15 +118,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""GyroRotation"",
-                    ""type"": ""Value"",
-                    ""id"": ""ace4fd3d-0aa7-4f00-bd25-17114d930b53"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -184,17 +175,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""22b93682-3ad4-4207-aad5-7ea20ea169f0"",
-                    ""path"": ""<Gyroscope>/angularVelocity"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Mobile"",
-                    ""action"": ""GyroRotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -239,7 +219,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
-        m_Player_GyroRotation = m_Player.FindAction("GyroRotation", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -323,7 +302,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_Click;
     private readonly InputAction m_Player_Point;
-    private readonly InputAction m_Player_GyroRotation;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -347,10 +325,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Point".
         /// </summary>
         public InputAction @Point => m_Wrapper.m_Player_Point;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/GyroRotation".
-        /// </summary>
-        public InputAction @GyroRotation => m_Wrapper.m_Player_GyroRotation;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -386,9 +360,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Point.started += instance.OnPoint;
             @Point.performed += instance.OnPoint;
             @Point.canceled += instance.OnPoint;
-            @GyroRotation.started += instance.OnGyroRotation;
-            @GyroRotation.performed += instance.OnGyroRotation;
-            @GyroRotation.canceled += instance.OnGyroRotation;
         }
 
         /// <summary>
@@ -409,9 +380,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Point.started -= instance.OnPoint;
             @Point.performed -= instance.OnPoint;
             @Point.canceled -= instance.OnPoint;
-            @GyroRotation.started -= instance.OnGyroRotation;
-            @GyroRotation.performed -= instance.OnGyroRotation;
-            @GyroRotation.canceled -= instance.OnGyroRotation;
         }
 
         /// <summary>
@@ -499,12 +467,5 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPoint(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "GyroRotation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnGyroRotation(InputAction.CallbackContext context);
     }
 }

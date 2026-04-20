@@ -32,15 +32,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "GyroRotation",
-                    "type": "Value",
-                    "id": "ace4fd3d-0aa7-4f00-bd25-17114d930b53",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -96,17 +87,6 @@
                     "processors": "",
                     "groups": ";PC",
                     "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "22b93682-3ad4-4207-aad5-7ea20ea169f0",
-                    "path": "<Gyroscope>/angularVelocity",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Mobile",
-                    "action": "GyroRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
